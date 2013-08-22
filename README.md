@@ -86,6 +86,7 @@ Returns an extended chainable promise.
 
 See also:
 * [Node.js API's fs.ftruncate](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
+* [Man page for ftruncate(2)](http://linux.die.net/man/2/ftruncate)
 
 ### FileSystem.prototype.truncate(path, len)
 
