@@ -72,7 +72,9 @@ Renames a file from `oldPath` to `newPath`.
 
 **Warning!** It is **not** implemented yet.
 
-See [fs.rename in Node.js](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback).
+See also: 
+* [Node.js API fs.rename](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
+* [Man page for rename(2)](http://linux.die.net/man/2/rename)
 
 ### FileSystem.prototype.ftruncate(fd, len)
 
