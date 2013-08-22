@@ -11,10 +11,10 @@ Sample Use Case
 
 So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
-Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It already has pretty good synchronous API -- although 
+Obviously you want to do it **asynchronously**. Otherwise simply use [fs](http://nodejs.org/api/fs.html). It already has pretty good synchronous API -- although 
 I fear [they still aren't chainable](#support-for-chainable-synchronous-calls).
 
-You also want to use [Q promises](https://github.com/kriskowal/q).
+You also want to use [promises](https://github.com/kriskowal/q).
 
 Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but you would still feel like you're missing something, it could be easier and simpler!
 
