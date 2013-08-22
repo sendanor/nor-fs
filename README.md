@@ -70,11 +70,7 @@ The constructor of the `FileSystem` objects.
 
 **Warning!** It is **not** implemented yet.
 
-Asynchronous [rename(2)](http://linux.die.net/man/2/rename).
-
-Renames a file from `oldPath` to `newPath`.
-
-Returns an extended chainable promise.
+Asynchronous [rename(2)](http://linux.die.net/man/2/rename) which renames a file from `oldPath` to `newPath` and returns an extended chainable promise.
 
 See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
 
@@ -82,9 +78,7 @@ See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.htm
 
 **Warning!** It is **not** implemented yet.
 
-Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate).
-
-Returns an extended chainable promise.
+Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate) which returns an extended chainable promise.
 
 See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
