@@ -51,15 +51,240 @@ Documentation
 
 **Warning!** These are **not** implemented yet.
 
-### fs
+### require('nor-fs')
 
-The root of the library is an instance of `fs.FileSystem`.
+The root of the library is an instance of [FileSystem](#class-filesystem).
 
-### fs.FileSystem()
+It has these properties:
+
+* [fs.FileSystem](#class-filesystem)
+* [fs.FileDescriptor](#class-filedescriptor)
+
+Class FileSystem
+----------------
+
+### new FileSystem()
 
 The constructor of the `FileSystem` objects.
 
-### fs.FileDescriptor(fd)
+**Warning!** You **should not** need to use it directly. However if you find any essential use for it in the userland, we would like hear it!
+
+### fs.rename(oldPath, newPath)
+
+Renames a file from `oldPath` to `newPath`.
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.rename in Node.js)[http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback].
+
+### fs.ftruncate(fd, len)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.truncate(path, len, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.chown(path, uid, gid, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.fchown(fd, uid, gid, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.lchown(path, uid, gid, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.chmod(path, mode, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.fchmod(fd, mode, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.lchmod(path, mode, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.stat(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.lstat(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.fstat(fd, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.link(srcpath, dstpath, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.symlink(srcpath, dstpath, [type], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.readlink(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.realpath(path, [cache], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.unlink(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.rmdir(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.mkdir(path, [mode], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.readdir(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.close(fd, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.open(path, flags, [mode], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.utimes(path, atime, mtime, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.futimes(fd, atime, mtime, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.fsync(fd, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.write(fd, buffer, offset, length, position, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.read(fd, buffer, offset, length, position, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.readFile(filename, [options], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.writeFile(filename, data, [options], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.appendFile(filename, data, [options], callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.watchFile(filename, [options], listener)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.unwatchFile(filename, [listener])
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.watch(filename, [options], [listener])
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### fs.exists(path, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### Class: fs.Stats
+
+**Warning!** It is **not** implemented yet.
+
+See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+Class FileDescriptor
+--------------------
+
+### new FileDescriptor(fd)
 
 The constructor of the `FileDescriptor` objects.
 
@@ -67,44 +292,11 @@ It takes single argument `fd` and if not defined will throw `TypeError` as excep
 
 Each `FileDescriptor` object will have a propery of `.fd`.
 
-### fs.rename(oldPath, newPath)
+**Warning!** Normally you shouldn't need to use it directly but it might be neccessary when using 3rd party addons which deal with raw `fd`'s.
 
-See (Node's fs.rename)[http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback].
-
-### fs.ftruncate(fd, len, callback)
-### fs.truncate(path, len, callback)
-### fs.chown(path, uid, gid, callback)
+### FileDescriptor.prototype.ftruncate(fd, len)
 ### fs.fchown(fd, uid, gid, callback)
-### fs.lchown(path, uid, gid, callback)
-### fs.chmod(path, mode, callback)
-### fs.fchmod(fd, mode, callback)
-### fs.lchmod(path, mode, callback)
-### fs.stat(path, callback)
-### fs.lstat(path, callback)
-### fs.fstat(fd, callback)
-### fs.link(srcpath, dstpath, callback)
-### fs.symlink(srcpath, dstpath, [type], callback)
-### fs.readlink(path, callback)
-### fs.realpath(path, [cache], callback)
-### fs.unlink(path, callback)
-### fs.rmdir(path, callback)
-### fs.mkdir(path, [mode], callback)
-### fs.readdir(path, callback)
-### fs.close(fd, callback)
-### fs.open(path, flags, [mode], callback)
-### fs.utimes(path, atime, mtime, callback)
-### fs.futimes(fd, atime, mtime, callback)
-### fs.fsync(fd, callback)
-### fs.write(fd, buffer, offset, length, position, callback)
-### fs.read(fd, buffer, offset, length, position, callback)
-### fs.readFile(filename, [options], callback)
-### fs.writeFile(filename, data, [options], callback)
-### fs.appendFile(filename, data, [options], callback)
-### fs.watchFile(filename, [options], listener)
-### fs.unwatchFile(filename, [listener])
-### fs.watch(filename, [options], [listener])
-### fs.exists(path, callback)
-### Class: fs.Stats
+
 
 TODO
 ----
