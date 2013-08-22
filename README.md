@@ -69,7 +69,7 @@ The constructor of the `FileSystem` objects.
 
 **Warning!** You **should not** need to use it directly. However if you find any essential use for it in the userland, we would like hear it!
 
-### fs.rename(oldPath, newPath)
+### FileSystem.prototype.rename(oldPath, newPath)
 
 Renames a file from `oldPath` to `newPath`.
 
@@ -77,209 +77,191 @@ Renames a file from `oldPath` to `newPath`.
 
 See (fs.rename in Node.js)[http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback].
 
-### fs.ftruncate(fd, len)
+### FileSystem.prototype.ftruncate(fd, len)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
 
-### fs.truncate(path, len, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.chown(path, uid, gid, callback)
+### FileSystem.prototype.truncate(path, len)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback].
 
-### fs.fchown(fd, uid, gid, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.lchown(path, uid, gid, callback)
+### FileSystem.prototype.chown(path, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback].
 
-### fs.chmod(path, mode, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.fchmod(fd, mode, callback)
+### FileSystem.prototype.fchown(fd, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback].
 
-### fs.lchmod(path, mode, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.stat(path, callback)
+### FileSystem.prototype.lchown(path, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lchown_path_uid_gid_callback].
 
-### fs.lstat(path, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.fstat(fd, callback)
+### FileSystem.prototype.chmod(path, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_chmod_path_mode_callback].
 
-### fs.link(srcpath, dstpath, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.symlink(srcpath, dstpath, [type], callback)
+### FileSystem.prototype.fchmod(fd, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback].
 
-### fs.readlink(path, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.realpath(path, [cache], callback)
+### FileSystem.prototype.lchmod(path, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lchmod_path_mode_callback].
 
-### fs.unlink(path, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.rmdir(path, callback)
+### FileSystem.prototype.stat(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_stat_path_callback].
 
-### fs.mkdir(path, [mode], callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.readdir(path, callback)
+### FileSystem.prototype.lstat(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback].
 
-### fs.close(fd, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.open(path, flags, [mode], callback)
+### FileSystem.prototype.fstat(fd)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback].
 
-### fs.utimes(path, atime, mtime, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.futimes(fd, atime, mtime, callback)
+### FileSystem.prototype.link(srcpath, dstpath)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_link_srcpath_dstpath_callback].
 
-### fs.fsync(fd, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.write(fd, buffer, offset, length, position, callback)
+### FileSystem.prototype.symlink(srcpath, dstpath, [type])
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_symlink_srcpath_dstpath_type_callback].
 
-### fs.read(fd, buffer, offset, length, position, callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.readFile(filename, [options], callback)
+### FileSystem.prototype.readlink(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readlink_path_callback].
 
-### fs.writeFile(filename, data, [options], callback)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.appendFile(filename, data, [options], callback)
+### FileSystem.prototype.realpath(path, [cache])
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_realpath_path_cache_callback].
 
-### fs.watchFile(filename, [options], listener)
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.unwatchFile(filename, [listener])
+### FileSystem.prototype.unlink(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback].
 
-### fs.watch(filename, [options], [listener])
-
-**Warning!** It is **not** implemented yet.
-
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
-
-### fs.exists(path, callback)
+### FileSystem.prototype.rmdir(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback].
+
+### FileSystem.prototype.mkdir(path, [mode])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback].
+
+### FileSystem.prototype.readdir(path)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback].
+
+### FileSystem.prototype.close(fd)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_close_fd_callback].
+
+### FileSystem.prototype.open(path, flags, [mode])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback].
+
+### FileSystem.prototype.utimes(path, atime, mtime)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_utimes_path_atime_mtime_callback].
+
+### FileSystem.prototype.futimes(fd, atime, mtime)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback].
+
+### FileSystem.prototype.fsync(fd)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fsync_fd_callback].
+
+### FileSystem.prototype.write(fd, buffer, offset, length, position)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback].
+
+### FileSystem.prototype.read(fd, buffer, offset, length, position)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback].
+
+### FileSystem.prototype.readFile(filename, [options])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback].
+
+### FileSystem.prototype.writeFile(filename, data, [options])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback].
+
+### FileSystem.prototype.appendFile(filename, data, [options])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_appendfile_filename_data_options_callback].
+
+### FileSystem.prototype.exists(path)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_exists_path_callback].
 
 ### Class: fs.Stats
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.ftruncate in Node.js)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_class_fs_stats].
 
 Class FileDescriptor
 --------------------
@@ -294,8 +276,65 @@ Each `FileDescriptor` object will have a propery of `.fd`.
 
 **Warning!** Normally you shouldn't need to use it directly but it might be neccessary when using 3rd party addons which deal with raw `fd`'s.
 
-### FileDescriptor.prototype.ftruncate(fd, len)
-### fs.fchown(fd, uid, gid, callback)
+
+### FileDescriptor.prototype.truncate(len)
+
+Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftruncate_len).
+
+### FileDescriptor.prototype.ftruncate(len)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+
+### FileDescriptor.prototype.chown(uid, gid)
+
+Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len).
+
+### FileDescriptor.prototype.fchown(uid, gid, callback)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback].
+
+
+### FileSystem.prototype.chmod(mode)
+
+Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mode).
+
+### FileSystem.prototype.fchmod(mode)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback].
+
+
+### FileSystem.prototype.utimes(atime, mtime)
+
+Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_atime_mtime).
+
+### FileSystem.prototype.futimes(atime, mtime)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback].
+
+
+### FileSystem.prototype.write(buffer, offset, length, position)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback].
+
+
+### FileSystem.prototype.read(buffer, offset, length, position)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback].
+
+
 
 
 TODO
@@ -314,47 +353,47 @@ Since `fs.*Sync()` calls probably don't return instances of fs, there could be c
 
 **Warning!** These are **not** implemented yet.
 
-### fs.renameSync(oldPath, newPath)
-### fs.ftruncateSync(fd, len)
-### fs.truncateSync(path, len)
-### fs.chownSync(path, uid, gid)
-### fs.fchownSync(fd, uid, gid)
-### fs.lchownSync(path, uid, gid)
-### fs.chmodSync(path, mode)
-### fs.fchmodSync(fd, mode)
-### fs.lchmodSync(path, mode)
-### fs.statSync(path)
-### fs.lstatSync(path)
-### fs.fstatSync(fd)
-### fs.linkSync(srcpath, dstpath)
-### fs.symlinkSync(srcpath, dstpath, [type])
-### fs.readlinkSync(path)
-### fs.realpathSync(path, [cache])
-### fs.unlinkSync(path)
-### fs.rmdirSync(path)
-### fs.mkdirSync(path, [mode])
-### fs.readdirSync(path)
-### fs.closeSync(fd)
-### fs.openSync(path, flags, [mode])
-### fs.utimesSync(path, atime, mtime)
-### fs.futimesSync(fd, atime, mtime)
-### fs.fsyncSync(fd)
-### fs.writeSync(fd, buffer, offset, length, position)
-### fs.readSync(fd, buffer, offset, length, position)
-### fs.readFileSync(filename, [options])
-### fs.writeFileSync(filename, data, [options])
-### fs.appendFileSync(filename, data, [options])
-### fs.existsSync(path)
+### FileSystem.prototype.renameSync(oldPath, newPath)
+### FileSystem.prototype.ftruncateSync(fd, len)
+### FileSystem.prototype.truncateSync(path, len)
+### FileSystem.prototype.chownSync(path, uid, gid)
+### FileSystem.prototype.fchownSync(fd, uid, gid)
+### FileSystem.prototype.lchownSync(path, uid, gid)
+### FileSystem.prototype.chmodSync(path, mode)
+### FileSystem.prototype.fchmodSync(fd, mode)
+### FileSystem.prototype.lchmodSync(path, mode)
+### FileSystem.prototype.statSync(path)
+### FileSystem.prototype.lstatSync(path)
+### FileSystem.prototype.fstatSync(fd)
+### FileSystem.prototype.linkSync(srcpath, dstpath)
+### FileSystem.prototype.symlinkSync(srcpath, dstpath, [type])
+### FileSystem.prototype.readlinkSync(path)
+### FileSystem.prototype.realpathSync(path, [cache])
+### FileSystem.prototype.unlinkSync(path)
+### FileSystem.prototype.rmdirSync(path)
+### FileSystem.prototype.mkdirSync(path, [mode])
+### FileSystem.prototype.readdirSync(path)
+### FileSystem.prototype.closeSync(fd)
+### FileSystem.prototype.openSync(path, flags, [mode])
+### FileSystem.prototype.utimesSync(path, atime, mtime)
+### FileSystem.prototype.futimesSync(fd, atime, mtime)
+### FileSystem.prototype.fsyncSync(fd)
+### FileSystem.prototype.writeSync(fd, buffer, offset, length, position)
+### FileSystem.prototype.readSync(fd, buffer, offset, length, position)
+### FileSystem.prototype.readFileSync(filename, [options])
+### FileSystem.prototype.writeFileSync(filename, data, [options])
+### FileSystem.prototype.appendFileSync(filename, data, [options])
+### FileSystem.prototype.existsSync(path)
 
 Support for fs.ReadStream and fs.WriteStream
 --------------------------------------------
 
 **Warning!** These are **not** implemented yet.
 
-### fs.createReadStream(path, [options])
+### FileSystem.prototype.createReadStream(path, [options])
 ### Class: fs.ReadStream
 #### Event: 'open'
-### fs.createWriteStream(path, [options])
+### FileSystem.prototype.createWriteStream(path, [options])
 ### Class: fs.WriteStream
 #### Event: 'open'
 #### file.bytesWritten
@@ -363,6 +402,24 @@ Support for watch features
 --------------------------
 
 **Warning!** These are **not** implemented yet.
+
+### FileSystem.prototype.watchFile(filename, [options], listener)
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_watchfile_filename_options_listener].
+
+### FileSystem.prototype.unwatchFile(filename, [listener])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+
+### FileSystem.prototype.watch(filename, [options], [listener])
+
+**Warning!** It is **not** implemented yet.
+
+See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
 
 ### Class: fs.FSWatcher
 #### watcher.close()
