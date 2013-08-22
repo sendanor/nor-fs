@@ -1,15 +1,18 @@
 nor-fs
 ======
 
-Asynchronous file system library with chainable Q promises for Node.js.
+Description
+-----------
+
+Asynchronous filesystem library with [chainable Q promises](https://github.com/sendanor/nor-extend) for Node.js.
 
 Sample Use Case
 ---------------
 
-So, let's say you need to do something with filesystem with Node.js. 
+So, let's say you need to do something with the filesystem with Node.js. 
 
-Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It has good synchronous methods -- although I fear they 
-aren't chainable.
+Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It has good synchronous methods -- although 
+I fear [they aren't chainable](#Support-for-chainable-synchronous-calls).
 
 You also want to use [Q promises](https://github.com/kriskowal/q). Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but still, you feel you're missing something. It's not user friendly. It could be simpler.
 
