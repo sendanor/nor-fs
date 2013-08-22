@@ -1,0 +1,35 @@
+{
+  "name": "nor-fs",
+  "version": "0.1.0",
+  "description": "Asynchronous file system library with chainable Q promises for Node.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha -R spec tests/test-*.js"
+  },
+  "directories": {
+    "test": "tests",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sendanor/nor-fs.git"
+  },
+  "keywords": [
+    "assert",
+    "tests"
+  ],
+  "author": "Jaakko-Heikki Heusala <jheusala@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "mail" : "info@sendanor.com",
+    "web" : "https://github.com/Sendanor/nor-fs/issues"
+  },
+  "dependencies": {
+    "q": "*",
+    "extend": "*"
+  },
+  "devDependencies": {
+    "lint": "*",
+    "mocha": "*"
+  }
+}
