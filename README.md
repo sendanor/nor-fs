@@ -1,8 +1,5 @@
-nor-fs
-======
-
-Description
------------
+nor-fs -- Chainable Asynchronous Filesystem Library
+===================================================
 
 Asynchronous filesystem library with chainable Q-based promises for [Node.js](http://nodejs.org/).
 
@@ -75,193 +72,193 @@ Renames a file from `oldPath` to `newPath`.
 
 **Warning!** It is **not** implemented yet.
 
-See (fs.rename in Node.js)[http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback].
+See [fs.rename in Node.js](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback).
 
 ### FileSystem.prototype.ftruncate(fd, len)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 ### FileSystem.prototype.truncate(path, len)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback).
 
 ### FileSystem.prototype.chown(path, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback).
 
 ### FileSystem.prototype.fchown(fd, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
 
 ### FileSystem.prototype.lchown(path, uid, gid)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lchown_path_uid_gid_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lchown_path_uid_gid_callback).
 
 ### FileSystem.prototype.chmod(path, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_chmod_path_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chmod_path_mode_callback).
 
 ### FileSystem.prototype.fchmod(fd, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
 
 ### FileSystem.prototype.lchmod(path, mode)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lchmod_path_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lchmod_path_mode_callback).
 
 ### FileSystem.prototype.stat(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_stat_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_stat_path_callback).
 
 ### FileSystem.prototype.lstat(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback).
 
 ### FileSystem.prototype.fstat(fd)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
 
 ### FileSystem.prototype.link(srcpath, dstpath)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_link_srcpath_dstpath_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_link_srcpath_dstpath_callback).
 
 ### FileSystem.prototype.symlink(srcpath, dstpath, [type])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_symlink_srcpath_dstpath_type_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_symlink_srcpath_dstpath_type_callback).
 
 ### FileSystem.prototype.readlink(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readlink_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readlink_path_callback).
 
 ### FileSystem.prototype.realpath(path, [cache])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_realpath_path_cache_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_realpath_path_cache_callback).
 
 ### FileSystem.prototype.unlink(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback).
 
 ### FileSystem.prototype.rmdir(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
 
 ### FileSystem.prototype.mkdir(path, [mode])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback).
 
 ### FileSystem.prototype.readdir(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback).
 
 ### FileSystem.prototype.close(fd)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_close_fd_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
 ### FileSystem.prototype.open(path, flags, [mode])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback).
 
 ### FileSystem.prototype.utimes(path, atime, mtime)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_utimes_path_atime_mtime_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_utimes_path_atime_mtime_callback).
 
 ### FileSystem.prototype.futimes(fd, atime, mtime)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback).
 
 ### FileSystem.prototype.fsync(fd)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fsync_fd_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsync_fd_callback).
 
 ### FileSystem.prototype.write(fd, buffer, offset, length, position)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 ### FileSystem.prototype.read(fd, buffer, offset, length, position)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback).
 
 ### FileSystem.prototype.readFile(filename, [options])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback).
 
 ### FileSystem.prototype.writeFile(filename, data, [options])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback).
 
 ### FileSystem.prototype.appendFile(filename, data, [options])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_appendfile_filename_data_options_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_appendfile_filename_data_options_callback).
 
 ### FileSystem.prototype.exists(path)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_exists_path_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback).
 
 ### Class: fs.Stats
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_class_fs_stats].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_class_fs_stats).
 
 Class FileDescriptor
 --------------------
@@ -285,7 +282,7 @@ Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftrunca
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 
 ### FileDescriptor.prototype.chown(uid, gid)
@@ -296,7 +293,7 @@ Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
 
 
 ### FileSystem.prototype.chmod(mode)
@@ -307,7 +304,7 @@ Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mod
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
 
 
 ### FileSystem.prototype.utimes(atime, mtime)
@@ -318,21 +315,21 @@ Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_a
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback).
 
 
 ### FileSystem.prototype.write(buffer, offset, length, position)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
 ### FileSystem.prototype.read(buffer, offset, length, position)
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback).
 
 
 
@@ -407,19 +404,19 @@ Support for watch features
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_watchfile_filename_options_listener].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_watchfile_filename_options_listener).
 
 ### FileSystem.prototype.unwatchFile(filename, [listener])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 ### FileSystem.prototype.watch(filename, [options], [listener])
 
 **Warning!** It is **not** implemented yet.
 
-See (original Node.js API documentation)[http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback].
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 ### Class: fs.FSWatcher
 #### watcher.close()
