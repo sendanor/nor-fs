@@ -70,31 +70,33 @@ The constructor of the `FileSystem` objects.
 
 **Warning!** It is **not** implemented yet.
 
+Asynchronous [rename(2)](http://linux.die.net/man/2/rename).
+
 Renames a file from `oldPath` to `newPath`.
 
 Returns an extended chainable promise.
 
-See also: 
-* [Node.js API's fs.rename](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
-* [Man page for rename(2)](http://linux.die.net/man/2/rename)
+See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
 
 ### FileSystem.prototype.ftruncate(fd, len)
 
 **Warning!** It is **not** implemented yet.
 
+Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate).
+
 Returns an extended chainable promise.
 
-See also:
-* [Node.js API's fs.ftruncate](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
-* [Man page for ftruncate(2)](http://linux.die.net/man/2/ftruncate)
+See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 ### FileSystem.prototype.truncate(path, len)
 
 **Warning!** It is **not** implemented yet.
 
+Asynchronous [truncate(2)](http://man7.org/linux/man-pages/man2/truncate.2.html).
+
 Returns an extended chainable promise.
 
-See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback).
+See also [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback).
 
 ### FileSystem.prototype.chown(path, uid, gid)
 
