@@ -4,7 +4,7 @@ nor-fs
 Description
 -----------
 
-Asynchronous filesystem library with [chainable Q promises](https://github.com/sendanor/nor-extend) for [Node.js](http://nodejs.org/).
+Asynchronous filesystem library with chainable Q-based promises for [Node.js](http://nodejs.org/).
 
 Sample Use Case
 ---------------
