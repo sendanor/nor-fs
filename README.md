@@ -94,9 +94,9 @@ See also [fs.truncate at Node.js API documentation](http://nodejs.org/api/fs.htm
 
 **Warning!** It is **not** implemented yet.
 
-Returns an extended chainable promise.
+Asynchronous [chown(2)](http://linux.die.net/man/2/chown) which returns an extended chainable promise.
 
-See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback).
+See also [fs.chown from the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback).
 
 ### FileSystem.prototype.fchown(fd, uid, gid)
 
