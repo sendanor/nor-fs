@@ -11,8 +11,8 @@ Sample Use Case
 
 So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
-Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It has good synchronous methods -- although 
-I fear [they aren't chainable](#Support-for-chainable-synchronous-calls).
+Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It already has pretty good synchronous API -- although 
+I fear [they still aren't chainable](#Support-for-chainable-synchronous-calls).
 
 You also want to use [Q promises](https://github.com/kriskowal/q).
 
