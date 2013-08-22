@@ -12,7 +12,7 @@ Sample Use Case
 So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
 Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It already has pretty good synchronous API -- although 
-I fear [they still aren't chainable](#Support-for-chainable-synchronous-calls).
+I fear [they still aren't chainable](#support-for-chainable-synchronous-calls).
 
 You also want to use [Q promises](https://github.com/kriskowal/q).
 
@@ -109,11 +109,11 @@ See (Node's fs.rename)[http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpat
 TODO
 ----
 
-* [Documentation](#Documentation)
-* [Tests](#Tests)
-* [Support for chainable synchronous calls](#Support-for-chainable-synchronous-calls)
-* [Support for fs.ReadStream and fs.WriteStream](#Support-for-fs.ReadStream-and-fs.WriteStream)
-* [Support for watch features](#Support-for-watch-features)
+* [Documentation](#documentation)
+* [Tests](#tests)
+* [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
+* [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
+* [Support for watch features](#support-for-watch-features)
 
 Support for chainable synchronous calls
 ---------------------------------------
