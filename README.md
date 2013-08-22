@@ -68,9 +68,11 @@ The constructor of the `FileSystem` objects.
 
 ### FileSystem.prototype.rename(oldPath, newPath)
 
+**Warning!** It is **not** implemented yet.
+
 Renames a file from `oldPath` to `newPath`.
 
-**Warning!** It is **not** implemented yet.
+Returns instance of FileSystem for chaining support.
 
 See also: 
 * [Node.js API's fs.rename](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
