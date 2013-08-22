@@ -9,12 +9,14 @@ Asynchronous filesystem library with [chainable Q promises](https://github.com/s
 Sample Use Case
 ---------------
 
-So, let's say you need to do something with the filesystem and [Node.js](http://nodejs.org/). 
+So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
 Obviously you want to do it **asynchronously**. Otherwise simply use [Node's fs](http://nodejs.org/api/fs.html). It has good synchronous methods -- although 
 I fear [they aren't chainable](#Support-for-chainable-synchronous-calls).
 
-You also want to use [Q promises](https://github.com/kriskowal/q). Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but still, you feel you're missing something. It's not user friendly. It could be simpler.
+You also want to use [Q promises](https://github.com/kriskowal/q).
+
+Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but you would still feel like you're missing something, it could be easier and simpler!
 
 The solution for the problem is to use our library which uses both [Q](https://github.com/kriskowal/q) and [nor-extend](https://github.com/sendanor/nor-extend) to enable 
 chainable promises.
