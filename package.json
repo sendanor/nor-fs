@@ -26,10 +26,11 @@
   },
   "dependencies": {
     "q": "*",
-    "extend": "*"
+    "nor-extend": "*"
   },
   "devDependencies": {
     "lint": "*",
-    "mocha": "*"
+    "mocha": "*",
+    "nor-is": "*"
   }
 }

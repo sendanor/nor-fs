@@ -38,8 +38,8 @@ Here's how you would need to do it with traditional promises:
 		console.error('Error: Failed to create hello.txt: ' + err);
 	}).done();
 
-Install
--------
+Installation
+------------
 
 Not yet published.
 
