@@ -65,14 +65,18 @@ describe('fs', function(){
 		
 		beforeEach(function(done){
 			fs.exists(test_dir + '/test1.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test1.txt') : fs;
 			}).$exists(test_dir + '/test2.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test2.txt') : fs;
 			}).$exists(test_dir + '/test3.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test3.txt') : fs;
 			}).$exists(test_dir).then(function(exists) {
-				return (exists) ? fs : fs.mkdir(test_dir, '0700');
-			}).$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:'0644'}).then(function(fs) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				return (exists) ? fs : fs.mkdir(test_dir, "0700");
+			}).$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).then(function(fs) {
 				done();
 			}).fail(function(err) {
 				done(err);
@@ -81,12 +85,16 @@ describe('fs', function(){
 
 		afterEach(function(done){
 			fs.exists(test_dir + '/test1.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test1.txt') : fs;
 			}).$exists(test_dir + '/test2.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test2.txt') : fs;
 			}).$exists(test_dir + '/test3.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.unlink(test_dir + '/test3.txt') : fs;
 			}).$exists(test_dir).then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				return (exists) ? fs.rmdir(test_dir) : fs;
 			}).then(function(fs) {
 				done();
@@ -95,22 +103,62 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('#rename() can rename tmp/test1.txt to tmp/test2.txt', function(done){
+		it('.writeFile() can create tmp/test3.txt', function(done){
+			fs.writeFile(test_dir + '/test3.txt', 'Hello World').$exists(test_dir + '/test3.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, true);
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.writeFile() can create tmp/test3.txt (with encoding:utf8)', function(done){
+			fs.writeFile(test_dir + '/test3.txt', 'Hello World', {encoding:'utf8'}).$exists(test_dir + '/test3.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, true);
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644)', function(done){
+			fs.writeFile(test_dir + '/test3.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).$exists(test_dir + '/test3.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, true);
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.exists() can detect tmp/test1.txt', function(done){
+			fs.exists(test_dir + '/test1.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, true);
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.exists() cannot detect tmp/test2.txt', function(done){
+			fs.exists(test_dir + '/test2.txt').then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, false);
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.rename() can rename tmp/test1.txt to tmp/test2.txt', function(done){
 			fs.rename(test_dir + '/test1.txt', test_dir+'/test2.txt').then(function(fs) {
 				done();
 			}).fail(function(err) {
 				done(err);
 			}).done();
-
-		});
-
-		it('#writeFile() can create tmp/test2.txt', function(done){
-			fs.writeFile(test_dir + '/test2.txt', 'Hello World', {encoding:'utf8', mode:'0644'}).then(function(fs) {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
-
 		});
 
 	});
