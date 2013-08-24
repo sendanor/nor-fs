@@ -416,11 +416,50 @@ describe('fs', function(){
 				orig = f;
 				return fs;
 			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
-				fd = f;
-				return fd;
+				return fd = f;
 			}).stat().then(function(f) {
 				assert.strictEqual( f.ino, orig.ino );
 				assert.strictEqual( f.size, orig.size );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.ftruncate(fd) can truncate tmp/test1.txt to size 8', function(done){
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 11 );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.ftruncate(fd.valueOf(), 8).fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.size, 8 );
+				return fs;
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('fd.truncate() can truncate tmp/test1.txt to size 8', function(done){
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 11 );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				return fd = f;
+			}).truncate(8).stat().then(function(f) {
+				assert.strictEqual( f.size, 8 );
 			}).fin(function() {
 				return fd.close();
 			}).then(function() {

@@ -72,8 +72,6 @@ See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.htm
 
 ### FileSystem.prototype.ftruncate(fd, len)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate) which returns an extended chainable promise.
 
 See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
@@ -356,8 +354,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fst
 Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftruncate_len).
 
 ### FileDescriptor.prototype.ftruncate(len)
-
-**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
