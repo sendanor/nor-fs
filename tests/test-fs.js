@@ -211,7 +211,6 @@ describe('fs', function(){
 		});
 
 		it('.link() can link tmp/test2.txt as tmp/test1.txt', function(done){
-			// FIXME: This should be tested somehow better
 			var orig;
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				orig = f;
@@ -227,7 +226,6 @@ describe('fs', function(){
 		});
 
 		it('.symlink() can symlink tmp/test2.txt as tmp/test1.txt', function(done){
-			// FIXME: This should be tested somehow better
 			var orig;
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				orig = f;
@@ -246,7 +244,6 @@ describe('fs', function(){
 		});
 
 		it('.readlink() can read a symlinks', function(done){
-			// FIXME: This should be tested somehow better
 			var orig;
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				orig = f;
@@ -260,6 +257,61 @@ describe('fs', function(){
 				assert.strictEqual( linkString, test_dir+'/test1.txt' );
 			}).fin(function() {
 				return fs.unlink(test_dir + '/test2.txt');
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.realpath() can resolve path', function(done){
+			var orig;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).symlink(test_dir + '/test1.txt', test_dir + '/test2.txt').stat(test_dir + '/test2.txt').then(function(f) {
+				assert.strictEqual( ''+f.ctime, ''+orig.ctime );
+				assert.strictEqual( f.size, orig.size );
+				assert.strictEqual( f.ino, orig.ino );
+				return fs;
+			}).realpath(test_dir + '/test2.txt').then(function(resolvedPath) {
+				assert.strictEqual( resolvedPath, test_dir+'/test1.txt' );
+			}).fin(function() {
+				return fs.unlink(test_dir + '/test2.txt');
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.unlink() can unlink test1.txt', function(done){
+			fs.unlink(test_dir + '/test1.txt').exists(test_dir + '/test1.txt').then(function(exists) {
+				assert.strictEqual( exists, false );
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.mkdir() can create directories and .rmdir() can remove those', function(done){
+			fs.mkdir(test_dir + '/subdir').exists(test_dir + '/subdir').then(function(exists) {
+				assert.strictEqual( exists, true );
+				return fs;
+			}).rmdir(test_dir + '/subdir').exists(test_dir + '/subdir').then(function(exists) {
+				assert.strictEqual( exists, false );
+				return fs;
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.readdir() can read directories', function(done){
+			fs.readdir(test_dir).then(function(files) {
+				assert.deepEqual( files, ["test1.txt"] );
+				return fs;
 			}).then(function() {
 				done();
 			}).fail(function(err) {

@@ -195,16 +195,12 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.realpath(path, [cache])
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous realpath(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_realpath_path_cache_callback).
 
 
 ### FileSystem.prototype.unlink(path)
-
-**Warning!** It is **not** tested yet.
 
 Asynchronous unlink(2). Returns an extended chainable promise.
 
@@ -213,16 +209,12 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unl
 
 ### FileSystem.prototype.rmdir(path)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous rmdir(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
 
 
 ### FileSystem.prototype.mkdir(path, [mode])
-
-**Warning!** It is **not** tested yet.
 
 Asynchronous mkdir(2). Returns an extended chainable promise.
 
@@ -231,20 +223,9 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkd
 
 ### FileSystem.prototype.readdir(path)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous readdir(3). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback).
-
-
-### FileSystem.prototype.close(fd)
-
-**Warning!** It is **not** tested yet.
-
-Asynchronous close(2). Returns an extended chainable promise.
-
-See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
 
 ### FileSystem.prototype.open(path, flags, [mode])
@@ -254,6 +235,15 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_clo
 Asynchronous file open. See open(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback).
+
+
+### FileSystem.prototype.close(fd)
+
+**Warning!** It is **not** tested yet.
+
+Asynchronous close(2). Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
 
 ### FileSystem.prototype.utimes(path, atime, mtime)
