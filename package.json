@@ -32,5 +32,8 @@
     "lint": "*",
     "mocha": "*",
     "nor-is": "*"
+  },
+  "engines": {
+    "node": ">=0.10"
   }
 }

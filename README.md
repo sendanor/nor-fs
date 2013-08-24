@@ -43,7 +43,15 @@ Here's how you would need to do it with traditional promises:
 Installation
 ------------
 
-Not yet published.
+### From the NPM
+
+You may install it from the NPM: `npm install nor-fs`.
+
+### Dependencies
+
+* [Node.js](http://nodejs.org) v0.10 or newer
+* [nor-extend](https://github.com/sendanor/nor-extend)
+* [q](https://github.com/kriskowal/q)
 
 Documentation
 -------------
