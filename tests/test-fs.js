@@ -469,6 +469,51 @@ describe('fs', function(){
 			}).done();
 		});
 
+
+		it('fd.chown() can change tmp/test1.txt to own uid, gid', function(done){
+			// FIXME: This should be tested somehow better
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				return fd = f;
+			}).chown(process.getuid(), process.getgid()).stat().then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.fchown(fd) can change tmp/test1.txt to own uid, gid', function(done){
+			// FIXME: This should be tested somehow better
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				return fd = f;
+			}).then(function(fd) {
+				return fs.fchown(fd.valueOf(), process.getuid(), process.getgid()).fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
