@@ -96,7 +96,7 @@ See also [fs.chown from the original Node.js API documentation](http://nodejs.or
 
 ### FileSystem.prototype.fchown(fd, uid, gid)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous fchown(2) which returns an extended chainable promise.
 
@@ -105,7 +105,7 @@ See also [fs.fchown in the original Node.js API documentation](http://nodejs.org
 
 ### FileSystem.prototype.lchown(path, uid, gid)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous lchown(2) which returns an extended chainable promise.
 
@@ -121,7 +121,7 @@ See also [fs.chmod in the original Node.js API documentation](http://nodejs.org/
 
 ### FileSystem.prototype.fchmod(fd, mode)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous fchmod(2) which returns an extended chainable promise.
 
@@ -130,7 +130,7 @@ See also [fs.fchmod in the original Node.js API documentation](http://nodejs.org
 
 ### FileSystem.prototype.lchmod(path, mode)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous lchmod(2) which returns an extended chainable promise.
 
@@ -138,8 +138,6 @@ See also [fs.lchmod in the original Node.js API documentation](http://nodejs.org
 
 
 ### FileSystem.prototype.stat(path)
-
-**Warning!** It is **not** implemented yet.
 
 Asynchronous stat(2) which returns a promise.
 
@@ -152,7 +150,7 @@ See also [fs.stat in the original Node.js API documentation](http://nodejs.org/a
 
 ### FileSystem.prototype.lstat(path)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous lstat(2) which returns a promise.
 
@@ -163,7 +161,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lst
 
 ### FileSystem.prototype.fstat(fd)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous fstat(2) which returns a promise.
 

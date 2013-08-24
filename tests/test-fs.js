@@ -161,6 +161,16 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.stat() can detect mode=0644 and size=11', function(done){
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 11 );
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 		it('.chmod() can chmod tmp/test1.txt to 0600', function(done){
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
