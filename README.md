@@ -248,8 +248,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_clo
 
 ### FileSystem.prototype.utimes(path, atime, mtime)
 
-**Warning!** It is **not** tested yet.
-
 Change file timestamps of the file referenced by the supplied path.
 
 Returns an extended chainable promise.
