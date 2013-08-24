@@ -3,6 +3,9 @@
 /* */
 describe('fs', function(){
 
+	var Q = require('q');
+	Q.longStackSupport = true;
+
 	var FileSystem = require('../lib/FileSystem.js');
 	var FileDescriptor = require('../lib/FileDescriptor.js');
 	var fs = require('../lib/index.js');
