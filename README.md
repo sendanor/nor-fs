@@ -371,12 +371,12 @@ Returns an extended chainable promise.
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
 
 
-### FileSystem.prototype.chmod(mode)
+### FileDescriptor.prototype.chmod(mode)
 
 Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mode).
 
 
-### FileSystem.prototype.fchmod(mode)
+### FileDescriptor.prototype.fchmod(mode)
 
 **Warning!** It is **not** tested yet.
 
@@ -385,12 +385,12 @@ Returns an extended chainable promise.
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
 
 
-### FileSystem.prototype.utimes(atime, mtime)
+### FileDescriptor.prototype.utimes(atime, mtime)
 
 Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_atime_mtime).
 
 
-### FileSystem.prototype.futimes(atime, mtime)
+### FileDescriptor.prototype.futimes(atime, mtime)
 
 **Warning!** It is **not** tested yet.
 
@@ -399,7 +399,7 @@ Returns an extended chainable promise.
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback).
 
 
-### FileSystem.prototype.write(buffer, offset, length, position)
+### FileDescriptor.prototype.write(buffer, offset, length, position)
 
 **Warning!** It is **not** tested yet.
 
@@ -408,7 +408,7 @@ Returns an extended chainable promise.
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
-### FileSystem.prototype.read(buffer, offset, length, position)
+### FileDescriptor.prototype.read(buffer, offset, length, position)
 
 **Warning!** It is **not** tested yet.
 

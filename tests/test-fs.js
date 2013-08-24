@@ -388,13 +388,36 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('.open() can open files and .stat() it', function(done){
+		it('.open() can open files and fs.fstat(fd) it, and then fs.close(fd)', function(done){
 			var orig, fd;
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				orig = f;
 				return fs;
 			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
 				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.ino, orig.ino );
+				assert.strictEqual( f.size, orig.size );
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.open() can open files and fd.stat() it, and then fd.close()', function(done){
+			var orig, fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
+				fd = f;
+				return fd;
 			}).stat().then(function(f) {
 				assert.strictEqual( f.ino, orig.ino );
 				assert.strictEqual( f.size, orig.size );
