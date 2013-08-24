@@ -195,6 +195,21 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.chown() can change tmp/test1.txt to own uid, gid', function(done){
+			// FIXME: This should be tested somehow better
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+				return fs;
+			}).chown(test_dir + '/test1.txt', process.getuid(), process.getgid()).stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.uid, process.getuid() );
+				assert.strictEqual( f.gid, process.getgid() );
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
