@@ -174,8 +174,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fst
 
 ### FileSystem.prototype.link(srcpath, dstpath)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous link(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_link_srcpath_dstpath_callback).
