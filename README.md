@@ -416,10 +416,10 @@ TODO
 ----
 
 * [Documentation](#documentation)
-* [Tests](#tests)
 * [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
 * [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
 * [Support for watch features](#support-for-watch-features)
+* `.lchown()` and `.lchmod()` not tested on Mac OS X
 
 Support for chainable synchronous calls
 ---------------------------------------
@@ -511,8 +511,6 @@ Tests
 -----
 
 Tests can be run by `npm test`.
-
-We're working on tests at the moment.
 
 Licence
 -------
