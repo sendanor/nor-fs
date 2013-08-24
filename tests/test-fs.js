@@ -388,14 +388,18 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('.open() can open files and stat it', function(done){
-			var orig;
+		it('.open() can open files and .stat() it', function(done){
+			var orig, fd;
 			fs.stat(test_dir + '/test1.txt').then(function(f) {
 				orig = f;
 				return fs;
-			}).open(test_dir + '/test1.txt', 'r').stat().then(function(f) {
+			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
+				fd = f;
+			}).stat().then(function(f) {
 				assert.strictEqual( f.ino, orig.ino );
 				assert.strictEqual( f.size, orig.size );
+			}).fin(function() {
+				return fd.close();
 			}).then(function() {
 				done();
 			}).fail(function(err) {

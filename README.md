@@ -228,8 +228,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.open(path, flags, [mode])
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous file open. See open(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback).
