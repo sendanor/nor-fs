@@ -627,6 +627,35 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('fs.write(fd, ...) can write to tmp/test2.txt', function(done){
+			var fd;
+			var buffer = new Buffer('Is it working yet?', 'utf8');
+			fs.exists(test_dir + '/test2.txt').then(function(exists) {
+				assert.strictEqual( exists, false );
+				return fs;
+			}).open(test_dir + '/test2.txt', 'w').then(function(f) {
+				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.write(fd.valueOf(), buffer, 0, 8, 11);
+			}).then(function(results) {
+				assert.strictEqual( results.written, 8 );
+				assert.strictEqual( results.buffer, buffer );
+				return fs;
+			}).then(function(fs) {
+				return fs.fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.size, 11 + 8 );
+				return fs;
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
