@@ -117,8 +117,6 @@ See also [fs.chmod in the original Node.js API documentation](http://nodejs.org/
 
 ### FileSystem.prototype.fchmod(fd, mode)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous fchmod(2) which returns an extended chainable promise.
 
 See also [fs.fchmod in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
@@ -376,8 +374,6 @@ Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mod
 
 
 ### FileDescriptor.prototype.fchmod(mode)
-
-**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 

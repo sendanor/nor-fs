@@ -517,6 +517,45 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('fd.chmod() can chmod tmp/test1.txt to 0600', function(done){
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				return fd = f;
+			}).chmod('0600').stat().then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.chmod(fd) can chmod tmp/test1.txt to 0600', function(done){
+			var fd;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				return fs;
+			}).open(test_dir + '/test1.txt', 'w+').then(function(f) {
+				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.fchmod(fd.valueOf(), '0600').fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
