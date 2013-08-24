@@ -627,7 +627,7 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('.write(fd, ...) can write to tmp/test2.txt', function(done){
+		it('.write(fd, ...) can write to tmp/test2.txt and fs.fsync(fd) works', function(done){
 			var fd;
 			var buffer = new Buffer('Is it working yet?', 'utf8');
 			fs.exists(test_dir + '/test2.txt').then(function(exists) {
@@ -641,7 +641,7 @@ describe('fs', function(){
 			}).then(function(results) {
 				assert.strictEqual( results.written, 8 );
 				assert.strictEqual( results.buffer, buffer );
-				return fs;
+				return fs.fsync(fd.valueOf());
 			}).then(function(fs) {
 				return fs.fstat(fd.valueOf());
 			}).then(function(f) {
@@ -656,7 +656,7 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('fd.write(...) can write to tmp/test2.txt', function(done){
+		it('fd.write(...) can write to tmp/test2.txt and fd.sync() works', function(done){
 			var fd;
 			var buffer = new Buffer('Is it working yet?', 'utf8');
 			fs.exists(test_dir + '/test2.txt').then(function(exists) {
@@ -669,8 +669,8 @@ describe('fs', function(){
 			}).then(function(results) {
 				assert.strictEqual( results.written, 8 );
 				assert.strictEqual( results.buffer, buffer );
-				return fs;
-			}).then(function(fs) {
+				return fd.sync();
+			}).then(function() {
 				return fs.fstat(fd.valueOf());
 			}).then(function(f) {
 				assert.strictEqual( f.size, 11 + 8 );
