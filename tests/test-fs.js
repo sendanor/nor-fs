@@ -183,6 +183,18 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.truncate() can truncate tmp/test1.txt to size 8', function(done){
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 11 );
+				return fs;
+			}).truncate(test_dir + '/test1.txt', 8).stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 8 );
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });

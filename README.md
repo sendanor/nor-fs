@@ -80,8 +80,6 @@ See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.
 
 ### FileSystem.prototype.truncate(path, len)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous [truncate(2)](http://man7.org/linux/man-pages/man2/truncate.2.html) which returns an extended chainable promise.
 
 See also [fs.truncate at Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback).
