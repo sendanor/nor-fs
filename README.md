@@ -297,8 +297,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.readFile(filename, [options])
 
-**Warning!** It is **not** tested yet.
-
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback).
