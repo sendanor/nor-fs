@@ -627,7 +627,7 @@ describe('fs', function(){
 			}).done();
 		});
 
-		it('fs.write(fd, ...) can write to tmp/test2.txt', function(done){
+		it('.write(fd, ...) can write to tmp/test2.txt', function(done){
 			var fd;
 			var buffer = new Buffer('Is it working yet?', 'utf8');
 			fs.exists(test_dir + '/test2.txt').then(function(exists) {
@@ -646,6 +646,75 @@ describe('fs', function(){
 				return fs.fstat(fd.valueOf());
 			}).then(function(f) {
 				assert.strictEqual( f.size, 11 + 8 );
+				return fs;
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('fd.write(...) can write to tmp/test2.txt', function(done){
+			var fd;
+			var buffer = new Buffer('Is it working yet?', 'utf8');
+			fs.exists(test_dir + '/test2.txt').then(function(exists) {
+				assert.strictEqual( exists, false );
+				return fs;
+			}).open(test_dir + '/test2.txt', 'w').then(function(f) {
+				return fd = f;
+			}).then(function(fd) {
+				return fd.write(buffer, 0, 8, 11);
+			}).then(function(results) {
+				assert.strictEqual( results.written, 8 );
+				assert.strictEqual( results.buffer, buffer );
+				return fs;
+			}).then(function(fs) {
+				return fs.fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.size, 11 + 8 );
+				return fs;
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.read(fd, ...) can read tmp/test1.txt', function(done){
+			var fd;
+			var buffer = new Buffer('########', 'utf8');
+			fs.open(test_dir + '/test1.txt', 'r').then(function(f) {
+				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.read(fd.valueOf(), buffer, /* offset */ 0, /* length */ 8, /* position */ 0);
+			}).then(function(results) {
+				assert.strictEqual( results.bytesRead, 8 );
+				assert.strictEqual( results.buffer.toString('utf8'), 'Hello Wo' );
+				return fs;
+			}).fin(function() {
+				return fs.close(fd.valueOf());
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('fd.read(...) can read tmp/test1.txt', function(done){
+			var fd;
+			var buffer = new Buffer('########', 'utf8');
+			fs.open(test_dir + '/test1.txt', 'r').then(function(f) {
+				return fd = f;
+			}).then(function(fd) {
+				return fd.read(buffer, /* offset */ 0, /* length */ 8, /* position */ 0);
+			}).then(function(results) {
+				assert.strictEqual( results.bytesRead, 8 );
+				assert.strictEqual( results.buffer.toString('utf8'), 'Hello Wo' );
 				return fs;
 			}).fin(function() {
 				return fs.close(fd.valueOf());
