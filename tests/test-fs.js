@@ -226,6 +226,25 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.symlink() can symlink tmp/test2.txt as tmp/test1.txt', function(done){
+			// FIXME: This should be tested somehow better
+			var orig;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).symlink(test_dir + '/test1.txt', test_dir + '/test2.txt').stat(test_dir + '/test2.txt').then(function(f) {
+				assert.strictEqual( ''+f.ctime, ''+orig.ctime );
+				assert.strictEqual( f.size, orig.size );
+				assert.strictEqual( f.ino, orig.ino );
+			}).fin(function() {
+				return fs.unlink(test_dir + '/test2.txt');
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });

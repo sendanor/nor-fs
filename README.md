@@ -181,8 +181,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lin
 
 ### FileSystem.prototype.symlink(srcpath, dstpath, [type])
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous symlink(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_symlink_srcpath_dstpath_type_callback).
