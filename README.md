@@ -243,8 +243,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_uti
 
 ### FileSystem.prototype.futimes(fd, atime, mtime)
 
-**Warning!** It is **not** tested yet.
-
 Change the file timestamps of a file referenced by the supplied file descriptor.
 
 Returns an extended chainable promise.
@@ -386,8 +384,6 @@ Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_a
 
 
 ### FileDescriptor.prototype.futimes(atime, mtime)
-
-**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 

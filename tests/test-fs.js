@@ -556,6 +556,77 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('fd.utimes() can change file timestamps', function(done){
+			var orig, fd;
+			var date = new Date(2013, 6, 20, 12, 1, 2);
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
+				return fd = f;
+			}).utimes(date, date).stat().then(function(f) {
+				assert.strictEqual( f.atime.getFullYear(), 2013 );
+				assert.strictEqual( f.atime.getMonth(), 6 );
+				assert.strictEqual( f.atime.getDate(), 20 );
+				assert.strictEqual( f.atime.getHours(), 12 );
+				assert.strictEqual( f.atime.getMinutes(), 1 );
+				assert.strictEqual( f.atime.getSeconds(), 2 );
+
+				assert.strictEqual( f.mtime.getFullYear(), 2013 );
+				assert.strictEqual( f.mtime.getMonth(), 6 );
+				assert.strictEqual( f.mtime.getDate(), 20 );
+				assert.strictEqual( f.mtime.getHours(), 12 );
+				assert.strictEqual( f.mtime.getMinutes(), 1 );
+				assert.strictEqual( f.mtime.getSeconds(), 2 );
+
+				assert.strictEqual( f.size, orig.size );
+				assert.strictEqual( f.ino, orig.ino );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
+		it('.futimes(fd) can change file timestamps', function(done){
+			var orig, fd;
+			var date = new Date(2013, 6, 20, 12, 1, 2);
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).open(test_dir + '/test1.txt', 'r').then(function(f) {
+				fd = f;
+				return fs;
+			}).then(function(fs) {
+				return fs.futimes(fd.valueOf(), date, date).fstat(fd.valueOf());
+			}).then(function(f) {
+				assert.strictEqual( f.atime.getFullYear(), 2013 );
+				assert.strictEqual( f.atime.getMonth(), 6 );
+				assert.strictEqual( f.atime.getDate(), 20 );
+				assert.strictEqual( f.atime.getHours(), 12 );
+				assert.strictEqual( f.atime.getMinutes(), 1 );
+				assert.strictEqual( f.atime.getSeconds(), 2 );
+
+				assert.strictEqual( f.mtime.getFullYear(), 2013 );
+				assert.strictEqual( f.mtime.getMonth(), 6 );
+				assert.strictEqual( f.mtime.getDate(), 20 );
+				assert.strictEqual( f.mtime.getHours(), 12 );
+				assert.strictEqual( f.mtime.getMinutes(), 1 );
+				assert.strictEqual( f.mtime.getSeconds(), 2 );
+
+				assert.strictEqual( f.size, orig.size );
+				assert.strictEqual( f.ino, orig.ino );
+			}).fin(function() {
+				return fd.close();
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
