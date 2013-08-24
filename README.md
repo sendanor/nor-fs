@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/Sendanor/nor-fs.png?branch=master)](http://travis-ci.org/Sendanor/nor-fs)
+
 nor-fs -- Chainable Asynchronous Filesystem Library
 ===================================================
 
