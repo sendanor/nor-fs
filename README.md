@@ -86,11 +86,11 @@ See also [fs.truncate at Node.js API documentation](http://nodejs.org/api/fs.htm
 
 ### FileSystem.prototype.chown(path, uid, gid)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous [chown(2)](http://linux.die.net/man/2/chown) which returns an extended chainable promise.
 
 See also [fs.chown from the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chown_path_uid_gid_callback).
+
+**Warning!** It is automatically tested, but not so well, since normally users cannot change ownership of a file to other users.
 
 ### FileSystem.prototype.fchown(fd, uid, gid)
 
