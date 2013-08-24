@@ -349,6 +349,17 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.readFile() can read files', function(done){
+			fs.readFile(test_dir + "/test1.txt", {encoding:"utf8"}).then(function(data) {
+				assert.strictEqual( data, "Hello World" );
+				return fs;
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
