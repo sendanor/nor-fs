@@ -311,8 +311,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 ### FileSystem.prototype.appendFile(filename, data, [options])
 
-**Warning!** It is **not** tested yet.
-
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_appendfile_filename_data_options_callback).
