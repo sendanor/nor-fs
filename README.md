@@ -252,8 +252,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fut
 
 ### FileSystem.prototype.fsync(fd)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous fsync(2). 
 
 Returns an extended chainable promise.
