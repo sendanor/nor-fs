@@ -270,8 +270,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 ### FileSystem.prototype.read(fd, buffer, offset, length, position)
 
-**Warning!** It is **not** tested yet.
-
 Returns an extended chainable promise which will on success pass on an object with properties `.bytesRead` and `.buffer`.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback).
@@ -390,16 +388,12 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fut
 
 ### FileDescriptor.prototype.write(buffer, offset, length, position)
 
-**Warning!** It is **not** tested yet.
-
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
 ### FileDescriptor.prototype.read(buffer, offset, length, position)
-
-**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
