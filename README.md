@@ -188,8 +188,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_sym
 
 ### FileSystem.prototype.readlink(path)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous readlink(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readlink_path_callback).

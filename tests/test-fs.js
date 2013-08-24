@@ -245,6 +245,28 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.readlink() can read a symlinks', function(done){
+			// FIXME: This should be tested somehow better
+			var orig;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).symlink(test_dir + '/test1.txt', test_dir + '/test2.txt').stat(test_dir + '/test2.txt').then(function(f) {
+				assert.strictEqual( ''+f.ctime, ''+orig.ctime );
+				assert.strictEqual( f.size, orig.size );
+				assert.strictEqual( f.ino, orig.ino );
+				return fs;
+			}).readlink(test_dir + '/test2.txt').then(function(linkString) {
+				assert.strictEqual( linkString, test_dir+'/test1.txt' );
+			}).fin(function() {
+				return fs.unlink(test_dir + '/test2.txt');
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
