@@ -172,7 +172,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fst
 
 ### FileSystem.prototype.link(srcpath, dstpath)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous link(2). Returns an extended chainable promise.
 
@@ -181,7 +181,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lin
 
 ### FileSystem.prototype.symlink(srcpath, dstpath, [type])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous symlink(2). Returns an extended chainable promise.
 
@@ -190,7 +190,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_sym
 
 ### FileSystem.prototype.readlink(path)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous readlink(2). Returns an extended chainable promise.
 
@@ -199,7 +199,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.realpath(path, [cache])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous realpath(2). Returns an extended chainable promise.
 
@@ -208,7 +208,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.unlink(path)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous unlink(2). Returns an extended chainable promise.
 
@@ -217,7 +217,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unl
 
 ### FileSystem.prototype.rmdir(path)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous rmdir(2). Returns an extended chainable promise.
 
@@ -226,7 +226,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmd
 
 ### FileSystem.prototype.mkdir(path, [mode])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous mkdir(2). Returns an extended chainable promise.
 
@@ -235,7 +235,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkd
 
 ### FileSystem.prototype.readdir(path)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous readdir(3). Returns an extended chainable promise.
 
@@ -244,7 +244,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.close(fd)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous close(2). Returns an extended chainable promise.
 
@@ -253,7 +253,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_clo
 
 ### FileSystem.prototype.open(path, flags, [mode])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous file open. See open(2). Returns an extended chainable promise.
 
@@ -262,7 +262,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ope
 
 ### FileSystem.prototype.utimes(path, atime, mtime)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Change file timestamps of the file referenced by the supplied path.
 
@@ -273,7 +273,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_uti
 
 ### FileSystem.prototype.futimes(fd, atime, mtime)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Change the file timestamps of a file referenced by the supplied file descriptor.
 
@@ -284,7 +284,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fut
 
 ### FileSystem.prototype.fsync(fd)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous fsync(2). 
 
@@ -295,7 +295,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsy
 
 ### FileSystem.prototype.write(fd, buffer, offset, length, position)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -304,7 +304,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 ### FileSystem.prototype.read(fd, buffer, offset, length, position)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -313,7 +313,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.readFile(filename, [options])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -329,7 +329,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 ### FileSystem.prototype.appendFile(filename, data, [options])
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -374,7 +374,7 @@ Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftrunca
 
 ### FileDescriptor.prototype.ftruncate(len)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -388,7 +388,7 @@ Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len
 
 ### FileDescriptor.prototype.fchown(uid, gid, callback)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -402,7 +402,7 @@ Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mod
 
 ### FileSystem.prototype.fchmod(mode)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -416,7 +416,7 @@ Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_a
 
 ### FileSystem.prototype.futimes(atime, mtime)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -425,7 +425,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fut
 
 ### FileSystem.prototype.write(buffer, offset, length, position)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
@@ -434,7 +434,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 ### FileSystem.prototype.read(buffer, offset, length, position)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
