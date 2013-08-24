@@ -68,8 +68,6 @@ The constructor of the `FileSystem` objects.
 
 ### FileSystem.prototype.rename(oldPath, newPath)
 
-**Warning!** It is **not** implemented yet.
-
 Asynchronous [rename(2)](http://linux.die.net/man/2/rename) which renames a file from `oldPath` to `newPath` and returns an extended chainable promise.
 
 See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
@@ -330,8 +328,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### FileSystem.prototype.writeFile(filename, data, [options])
 
-**Warning!** It is **not** implemented yet.
-
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback).
@@ -347,8 +343,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_app
 
 
 ### FileSystem.prototype.exists(path)
-
-**Warning!** It is **not** implemented yet.
 
 Returns an extended chainable promise.
 
