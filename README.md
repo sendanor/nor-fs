@@ -72,7 +72,7 @@ See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.htm
 
 ### FileSystem.prototype.ftruncate(fd, len)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate) which returns an extended chainable promise.
 
@@ -80,7 +80,7 @@ See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.
 
 ### FileSystem.prototype.truncate(path, len)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous [truncate(2)](http://man7.org/linux/man-pages/man2/truncate.2.html) which returns an extended chainable promise.
 
@@ -88,7 +88,7 @@ See also [fs.truncate at Node.js API documentation](http://nodejs.org/api/fs.htm
 
 ### FileSystem.prototype.chown(path, uid, gid)
 
-**Warning!** It is **not** implemented yet.
+**Warning!** It is **not** tested yet.
 
 Asynchronous [chown(2)](http://linux.die.net/man/2/chown) which returns an extended chainable promise.
 
