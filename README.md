@@ -46,8 +46,6 @@ Not yet published.
 Documentation
 -------------
 
-**Warning!** These are **not** implemented yet.
-
 ### require('nor-fs')
 
 The root of the library is an instance of [FileSystem](#class-filesystem).
@@ -115,8 +113,6 @@ See also [fs.lchown in the original Node.js API documentation](http://nodejs.org
 
 
 ### FileSystem.prototype.chmod(path, mode)
-
-**Warning!** It is **not** implemented yet.
 
 Asynchronous chmod(2) which returns an extended chainable promise.
 

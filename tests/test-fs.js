@@ -161,6 +161,18 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.chmod() can chmod tmp/test1.txt to 0600', function(done){
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				return fs;
+			}).chmod(test_dir + '/test1.txt', '0600').stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
