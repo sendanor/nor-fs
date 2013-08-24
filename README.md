@@ -161,8 +161,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lst
 
 ### FileSystem.prototype.fstat(fd)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous fstat(2) which returns a promise.
 
 `fstat()` is identical to `stat()`, except that the file to be stat-ed is specified by the file descriptor `fd`.
@@ -234,8 +232,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ope
 
 
 ### FileSystem.prototype.close(fd)
-
-**Warning!** It is **not** tested yet.
 
 Asynchronous close(2). Returns an extended chainable promise.
 
@@ -343,10 +339,21 @@ Each `FileDescriptor` object will have a propery of `.fd`.
 
 
 
+### FileDescriptor.prototype.stat()
+
+Alias for [FileDescriptor.prototype.fstat](#filedescriptor_prototype_fstat).
+
+### FileDescriptor.prototype.fstat()
+
+Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
+
+
+
 ### FileDescriptor.prototype.truncate(len)
 
 Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftruncate_len).
-
 
 ### FileDescriptor.prototype.ftruncate(len)
 
@@ -415,6 +422,18 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback).
+
+
+### FileDescriptor.prototype.sync()
+
+Alias for [FileDescriptor.prototype.fsync](#filedescriptor_prototype_fsync).
+
+### FileDescriptor.prototype.fsync()
+
+Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsync_fd_callback).
+
 
 
 
