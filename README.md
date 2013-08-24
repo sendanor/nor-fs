@@ -430,6 +430,8 @@ TODO
 * [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
 * [Support for watch features](#support-for-watch-features)
 * `.lchown()` and `.lchmod()` not tested on Mac OS X
+* Fix anchor links in README
+* Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
 
 Support for chainable synchronous calls
 ---------------------------------------
