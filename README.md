@@ -152,8 +152,6 @@ See also [fs.stat in the original Node.js API documentation](http://nodejs.org/a
 
 ### FileSystem.prototype.lstat(path)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous lstat(2) which returns a promise.
 
 `lstat()` is identical to [`stat()`](#filesystem_prototype_stat), except that if path is a symbolic link, then the link itself is stat-ed, not the file that it refers to.

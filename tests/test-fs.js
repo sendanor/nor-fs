@@ -371,6 +371,23 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.lstat() can stat files from symlinks', function(done){
+			var orig;
+			fs.stat(test_dir + '/test1.txt').then(function(f) {
+				orig = f;
+				return fs;
+			}).symlink(test_dir + '/test1.txt', test_dir + '/test2.txt').lstat(test_dir + '/test2.txt').then(function(f) {
+				assert.notStrictEqual( f.ino, orig.ino );
+				assert.notStrictEqual( f.size, orig.size );
+			}).fin(function() {
+				return fs.unlink(test_dir + '/test2.txt');
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
