@@ -103,11 +103,13 @@ See also [fs.fchown in the original Node.js API documentation](http://nodejs.org
 
 ### FileSystem.prototype.lchown(path, uid, gid)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous lchown(2) which returns an extended chainable promise.
 
 See also [fs.lchown in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lchown_path_uid_gid_callback).
+
+**Warning!** Only available on MAC OS X system.
+
+**Warning!** It is **not** tested yet. I don't have a MAC OS X system.
 
 
 ### FileSystem.prototype.chmod(path, mode)
@@ -128,11 +130,13 @@ See also [fs.fchmod in the original Node.js API documentation](http://nodejs.org
 
 ### FileSystem.prototype.lchmod(path, mode)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous lchmod(2) which returns an extended chainable promise.
 
 See also [fs.lchmod in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lchmod_path_mode_callback).
+
+**Warning!** Only available on MAC OS X system.
+
+**Warning!** It is **not** tested yet. I don't have a MAC OS X system.
 
 
 ### FileSystem.prototype.stat(path)
