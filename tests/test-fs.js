@@ -360,6 +360,17 @@ describe('fs', function(){
 			}).done();
 		});
 
+		it('.appendFile() can append to tmp/test1.txt', function(done){
+			fs.appendFile(test_dir + '/test1.txt', ' -- How is it working?').readFile(test_dir + "/test1.txt", {encoding:"utf8"}).then(function(data) {
+				assert.strictEqual( data, "Hello World -- How is it working?" );
+				return fs;
+			}).then(function() {
+				done();
+			}).fail(function(err) {
+				done(err);
+			}).done();
+		});
+
 	});
 
 });
