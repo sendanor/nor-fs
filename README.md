@@ -92,8 +92,6 @@ See also [fs.chown from the original Node.js API documentation](http://nodejs.or
 
 ### FileSystem.prototype.fchown(fd, uid, gid)
 
-**Warning!** It is **not** tested yet.
-
 Asynchronous fchown(2) which returns an extended chainable promise.
 
 See also [fs.fchown in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
@@ -366,8 +364,6 @@ Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len
 
 
 ### FileDescriptor.prototype.fchown(uid, gid, callback)
-
-**Warning!** It is **not** tested yet.
 
 Returns an extended chainable promise.
 
