@@ -22,23 +22,27 @@ chainable promises.
 
 Here's an example of creating a file named `hello.txt` and changing permissions:
 
-	fs.writeFile('hello.txt', 'Hello World').chmod('hello.txt', 600).chown('hello.txt', 1000, 1000).then(function() {
-		console.log('hello.txt created succesfully');
-	}).fail(function(err) {
-		console.error('Error: Failed to create hello.txt: ' + err);
-	}).done();
+```javascript
+fs.writeFile('hello.txt', 'Hello World').chmod('hello.txt', 600).chown('hello.txt', 1000, 1000).then(function() {
+	console.log('hello.txt created succesfully');
+}).fail(function(err) {
+	console.error('Error: Failed to create hello.txt: ' + err);
+}).done();
+```
 
 Here's how you would need to do it with traditional promises:
 
-	fs.writeFile('hello.txt', 'Hello World').then(function() {
-		return fs.chmod('hello.txt', 600);
-	}).then(function() {
-		return fs.chown('hello.txt', 1000, 1000);
-	}).then(function() {
-		console.log('hello.txt created succesfully');
-	}).fail(function(err) {
-		console.error('Error: Failed to create hello.txt: ' + err);
-	}).done();
+```javascript
+fs.writeFile('hello.txt', 'Hello World').then(function() {
+	return fs.chmod('hello.txt', 600);
+}).then(function() {
+	return fs.chown('hello.txt', 1000, 1000);
+}).then(function() {
+	console.log('hello.txt created succesfully');
+}).fail(function(err) {
+	console.error('Error: Failed to create hello.txt: ' + err);
+}).done();
+```
 
 Installation
 ------------
