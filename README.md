@@ -210,6 +210,12 @@ Asynchronous unlink(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback).
 
+### FileSystem.prototype.unlinkIfExists(path)
+
+Asynchronous unlink(2). Only tries to unlink if the file exists. Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback).
+
 
 ### FileSystem.prototype.rmdir(path)
 
@@ -217,10 +223,22 @@ Asynchronous rmdir(2). Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
 
+### FileSystem.prototype.rmdirIfExists(path)
+
+Asynchronous rmdir(2). Only tries to remove the directory if it exists. Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
+
 
 ### FileSystem.prototype.mkdir(path, [mode])
 
 Asynchronous mkdir(2). Returns an extended chainable promise.
+
+See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback).
+
+### FileSystem.prototype.mkdirIfMissing(path, [mode])
+
+Asynchronous mkdir(2). Only tries to create the directory if it does not already exist. Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback).
 

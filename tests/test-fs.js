@@ -67,19 +67,11 @@ describe('fs', function(){
 		var test_dir = __dirname + "/tmp";
 		
 		beforeEach(function(done){
-			fs.exists(test_dir + '/test1.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test1.txt') : fs;
-			}).$exists(test_dir + '/test2.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test2.txt') : fs;
-			}).$exists(test_dir + '/test3.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test3.txt') : fs;
-			}).$exists(test_dir).then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs : fs.mkdir(test_dir, "0700");
-			}).$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).then(function(fs) {
+			fs.unlinkIfExists(test_dir + '/test1.txt')
+			  .$unlinkIfExists(test_dir + '/test2.txt')
+			  .$unlinkIfExists(test_dir + '/test3.txt')
+			  .$mkdirIfMissing(test_dir, "0700")
+			  .$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).then(function(fs) {
 				done();
 			}).fail(function(err) {
 				done(err);
@@ -87,19 +79,11 @@ describe('fs', function(){
 		});
 
 		afterEach(function(done){
-			fs.exists(test_dir + '/test1.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test1.txt') : fs;
-			}).$exists(test_dir + '/test2.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test2.txt') : fs;
-			}).$exists(test_dir + '/test3.txt').then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.unlink(test_dir + '/test3.txt') : fs;
-			}).$exists(test_dir).then(function(exists) {
-				assert.ok( ((exists === false) || (exists === true)) ? true : false );
-				return (exists) ? fs.rmdir(test_dir) : fs;
-			}).then(function(fs) {
+			fs.unlinkIfExists(test_dir + '/test1.txt')
+			  .$unlinkIfExists(test_dir + '/test2.txt')
+			  .$unlinkIfExists(test_dir + '/test3.txt')
+			  .$rmdirIfExists(test_dir)
+			  .then(function(fs) {
 				done();
 			}).fail(function(err) {
 				done(err);
