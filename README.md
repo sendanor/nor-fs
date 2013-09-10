@@ -44,21 +44,63 @@ fs.writeFile('hello.txt', 'Hello World').then(function() {
 }).done();
 ```
 
-Installation
-------------
+Getting Started
+---------------
 
-### From the NPM
+### Installation
+
+#### Installing from the NPM
 
 You may install it from the NPM: `npm install nor-fs`.
 
-### Dependencies
+#### Dependencies
 
 * [Node.js](http://nodejs.org) v0.10 or newer
 * [nor-extend](https://github.com/sendanor/nor-extend)
 * [q](https://github.com/kriskowal/q)
 
-Documentation
--------------
+Issues, pull requests and updates
+---------------------------------
+
+### Issues, questions and other resources
+
+Do not hesitate to [create issues](https://github.com/sendanor/nor-fs/issues) 
+or [ask questions](http://stackoverflow.com/questions/ask) for any reason. 
+We're happy to receive pull requests, too.
+
+### Social media
+
+Our company is [@sendanorcom](https://twitter.com/sendanorcom) at Twitter and 
+our channel on Freenode IRC network is #sendanor.
+
+Original author and the lead is [@jheusala](https://twitter.com/jheusala).
+
+### Versioning
+
+`nor-fs` follows [Semantic Versioning](http://semver.org/) and is using 
+[rolling release model](http://en.wikipedia.org/wiki/Rolling_release).
+
+We'll introduce new features when neccessary at a good pace. We'll try our best 
+not to break backwards compatibility and if that happens we'll fix it as fast 
+as possible.
+
+TODO
+----
+
+### Upcoming release
+
+* Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
+* [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
+* Fix anchor links in README
+
+### Future releases
+
+* [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
+* [Support for watch features](#support-for-watch-features)
+* `.lchown()` and `.lchmod()` not tested on Mac OS X
+
+Full API Documentation
+----------------------
 
 ### require('nor-fs')
 
@@ -443,17 +485,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsy
 
 
 
-
-TODO
-----
-
-* [Documentation](#documentation)
-* [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
-* [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
-* [Support for watch features](#support-for-watch-features)
-* `.lchown()` and `.lchmod()` not tested on Mac OS X
-* Fix anchor links in README
-* Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
 
 Support for chainable synchronous calls
 ---------------------------------------
