@@ -59,6 +59,15 @@ You may install it from the NPM: `npm install nor-fs`.
 * [nor-extend](https://github.com/sendanor/nor-extend)
 * [q](https://github.com/kriskowal/q)
 
+### Require
+
+```javascript
+var fs = require('nor-fs');
+```
+
+Our methods are named the same as their lower level Node.js API calls with the 
+exception that instead of taking callbacks we are returning chainable promises.
+
 Issues, pull requests and updates
 ---------------------------------
 
@@ -89,8 +98,8 @@ TODO
 
 ### Upcoming release
 
-* Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
-* [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
+* Issue #1 - Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
+* Issue #2 - [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
 * Fix anchor links in README
 
 ### Future releases
