@@ -98,15 +98,14 @@ TODO
 
 ### Upcoming release
 
-* Issue #1 - Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
-* Issue #2 - [Support for chainable synchronous calls](#support-for-chainable-synchronous-calls)
-* Fix anchor links in README
+* [Issue #1](https://github.com/Sendanor/nor-fs/issues/1) -- Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
+* [Issue #2](https://github.com/Sendanor/nor-fs/issues/2) -- Support for chainable synchronous calls
 
 ### Future releases
 
-* [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
-* [Support for watch features](#support-for-watch-features)
-* `.lchown()` and `.lchmod()` not tested on Mac OS X
+* [Issue #3](https://github.com/Sendanor/nor-fs/issues/3) -- [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
+* [Issue #4](https://github.com/Sendanor/nor-fs/issues/4) -- [Support for watch features](#support-for-watch-features)
+* [Issue #3](https://github.com/Sendanor/nor-fs/issues/5) -- `.lchown()` and `.lchmod()` not tested on Mac OS X
 
 Full API Documentation
 ----------------------
