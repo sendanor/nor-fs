@@ -105,7 +105,7 @@ TODO
 
 * [Issue #3](https://github.com/Sendanor/nor-fs/issues/3) -- [Support for fs.ReadStream and fs.WriteStream](#support-for-fs.ReadStream-and-fs.WriteStream)
 * [Issue #4](https://github.com/Sendanor/nor-fs/issues/4) -- [Support for watch features](#support-for-watch-features)
-* [Issue #3](https://github.com/Sendanor/nor-fs/issues/5) -- `.lchown()` and `.lchmod()` not tested on Mac OS X
+* [Issue #5](https://github.com/Sendanor/nor-fs/issues/5) -- `.lchown()` and `.lchmod()` not tested on Mac OS X
 
 Full API Documentation
 ----------------------
