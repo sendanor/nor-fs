@@ -10,7 +10,7 @@ Sample Use Case
 
 So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
-You also want to use [promises](https://github.com/kriskowal/q).
+You also want to use [promises](https://github.com/kriskowal/q). (Actually, we have `fs.sync` for synchronous calls, too.)
 
 Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but you would still feel like you're missing something, it could be easier and simpler!
 
