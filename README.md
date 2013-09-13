@@ -390,10 +390,6 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_exi
 
 ### Class: fs.Stats
 
-**Warning!** It is **not** implemented yet.
-
-Returns an extended chainable promise.
-
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_class_fs_stats).
 
 Class FileDescriptor
