@@ -10,9 +10,6 @@ Sample Use Case
 
 So, let's say you need to **do something** with the filesystem and [Node.js](http://nodejs.org/). 
 
-Obviously you want to do it **asynchronously**. Otherwise simply use [fs](http://nodejs.org/api/fs.html). It already has pretty good synchronous API -- although 
-I fear [it still isn't chainable](#support-for-chainable-synchronous-calls).
-
 You also want to use [promises](https://github.com/kriskowal/q).
 
 Sure, you could use [q-io](https://github.com/kriskowal/q-io) -- but you would still feel like you're missing something, it could be easier and simpler!
@@ -99,7 +96,6 @@ TODO
 ### Upcoming release
 
 * [Issue #1](https://github.com/Sendanor/nor-fs/issues/1) -- Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
-* [Issue #2](https://github.com/Sendanor/nor-fs/issues/2) -- Support for chainable synchronous calls
 
 ### Future releases
 
@@ -114,10 +110,13 @@ Full API Documentation
 
 The root of the library is an instance of [FileSystem](#class-filesystem).
 
-It has these properties:
+It also has these properties:
 
 * [fs.FileSystem](#class-filesystem)
 * [fs.FileDescriptor](#class-filedescriptor)
+* [fs.SyncFileSystem](#class-syncfilesystem)
+* [fs.SyncFileDescriptor](#class-syncfiledescriptor)
+* fs.sync -- Instance of class `SyncFileSystem`
 
 Class FileSystem
 ----------------
@@ -494,44 +493,57 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsy
 
 
 
-Support for chainable synchronous calls
----------------------------------------
+Class SyncFileSystem
+--------------------
 
-Since `fs.*Sync()` calls probably don't return instances of fs, there could be chainable wrapper for them.
+These are chainable synchronous wrappers for original calls like `require('fs').{call}Sync(...)`.
 
-**Warning!** These are **not** implemented yet.
+### SyncFileSystem.prototype.rename(oldPath, newPath)
+### SyncFileSystem.prototype.ftruncate(fd, len)
+### SyncFileSystem.prototype.truncate(path, len)
+### SyncFileSystem.prototype.chown(path, uid, gid)
+### SyncFileSystem.prototype.lchown(path, uid, gid)
+### SyncFileSystem.prototype.fchown(fd, uid, gid)
+### SyncFileSystem.prototype.chmod(path, mode)
+### SyncFileSystem.prototype.fchmod(fd, mode)
+### SyncFileSystem.prototype.lchmod(path, mode)
+### SyncFileSystem.prototype.stat(path)
+### SyncFileSystem.prototype.lstat(path)
+### SyncFileSystem.prototype.fstat(fd)
+### SyncFileSystem.prototype.link(srcpath, dstpath)
+### SyncFileSystem.prototype.symlink(srcpath, dstpath, [type])
+### SyncFileSystem.prototype.readlink(path)
+### SyncFileSystem.prototype.realpath(path, [cache])
+### SyncFileSystem.prototype.unlink(path)
+### SyncFileSystem.prototype.rmdir(path)
+### SyncFileSystem.prototype.mkdir(path, [mode])
+### SyncFileSystem.prototype.readdir(path)
+### SyncFileSystem.prototype.close(fd)
+### SyncFileSystem.prototype.open(path, flags, [mode])
+### SyncFileSystem.prototype.utimes(path, atime, mtime)
+### SyncFileSystem.prototype.futimes(fd, atime, mtime)
+### SyncFileSystem.prototype.fsync(fd)
+### SyncFileSystem.prototype.write(fd, buffer, offset, length, position)
+### SyncFileSystem.prototype.read(fd, buffer, offset, length, position)
+### SyncFileSystem.prototype.readFile(filename, [options])
+### SyncFileSystem.prototype.writeFile(filename, data, [options])
+### SyncFileSystem.prototype.appendFile(filename, data, [options])
+### SyncFileSystem.prototype.exists(path)
 
-### FileSystem.prototype.renameSync(oldPath, newPath)
-### FileSystem.prototype.ftruncateSync(fd, len)
-### FileSystem.prototype.truncateSync(path, len)
-### FileSystem.prototype.chownSync(path, uid, gid)
-### FileSystem.prototype.fchownSync(fd, uid, gid)
-### FileSystem.prototype.lchownSync(path, uid, gid)
-### FileSystem.prototype.chmodSync(path, mode)
-### FileSystem.prototype.fchmodSync(fd, mode)
-### FileSystem.prototype.lchmodSync(path, mode)
-### FileSystem.prototype.statSync(path)
-### FileSystem.prototype.lstatSync(path)
-### FileSystem.prototype.fstatSync(fd)
-### FileSystem.prototype.linkSync(srcpath, dstpath)
-### FileSystem.prototype.symlinkSync(srcpath, dstpath, [type])
-### FileSystem.prototype.readlinkSync(path)
-### FileSystem.prototype.realpathSync(path, [cache])
-### FileSystem.prototype.unlinkSync(path)
-### FileSystem.prototype.rmdirSync(path)
-### FileSystem.prototype.mkdirSync(path, [mode])
-### FileSystem.prototype.readdirSync(path)
-### FileSystem.prototype.closeSync(fd)
-### FileSystem.prototype.openSync(path, flags, [mode])
-### FileSystem.prototype.utimesSync(path, atime, mtime)
-### FileSystem.prototype.futimesSync(fd, atime, mtime)
-### FileSystem.prototype.fsyncSync(fd)
-### FileSystem.prototype.writeSync(fd, buffer, offset, length, position)
-### FileSystem.prototype.readSync(fd, buffer, offset, length, position)
-### FileSystem.prototype.readFileSync(filename, [options])
-### FileSystem.prototype.writeFileSync(filename, data, [options])
-### FileSystem.prototype.appendFileSync(filename, data, [options])
-### FileSystem.prototype.existsSync(path)
+Class SyncFileDescriptor
+------------------------
+
+These are chainable synchronous wrappers for original calls like `require('fs').{call}Sync(fd, ...)`.
+
+### SyncFileDescriptor.prototype.ftruncate(len)
+### SyncFileDescriptor.prototype.fchown(uid, gid)
+### SyncFileDescriptor.prototype.fchmod(mode)
+### SyncFileDescriptor.prototype.fstat()
+### SyncFileDescriptor.prototype.close()
+### SyncFileDescriptor.prototype.futimes(atime, mtime)
+### SyncFileDescriptor.prototype.fsync()
+### SyncFileDescriptor.prototype.write(buffer, offset, length, position)
+### SyncFileDescriptor.prototype.read(buffer, offset, length, position)
 
 Support for fs.ReadStream and fs.WriteStream
 --------------------------------------------
