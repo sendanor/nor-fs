@@ -7,6 +7,7 @@ describe('fs', function(){
 	Q.longStackSupport = true;
 
 	var FileSystem = require('../lib/FileSystem.js');
+	var FilePath = require('../lib/FilePath.js');
 	var FileDescriptor = require('../lib/FileDescriptor.js');
 	var fs = require('../lib/index.js');
 	var is = require('nor-is');
@@ -22,9 +23,21 @@ describe('fs', function(){
 		});
 	});
 
+	describe('.Path', function(){
+		it('should be same as FilePath', function(){
+			assert.strictEqual(fs.Path, FilePath);
+		});
+	});
+
 	describe('.FileDescriptor', function(){
 		it('should be same as FileDescriptor', function(){
 			assert.strictEqual(fs.FileDescriptor, FileDescriptor);
+		});
+	});
+
+	describe('.Descriptor', function(){
+		it('should be same as FileDescriptor', function(){
+			assert.strictEqual(fs.Descriptor, FileDescriptor);
 		});
 	});
 
@@ -58,11 +71,15 @@ describe('fs', function(){
 	it('.appendFile is callable', function(){ assert.strictEqual(typeof fs.appendFile, 'function'); });
 	it('.exists is callable',     function(){ assert.strictEqual(typeof fs.exists, 'function'); });
 
+	it('.unlinkIfExists is callable',     function(){ assert.strictEqual(typeof fs.unlinkIfExists, 'function'); });
+	it('.rmdirIfExists is callable',      function(){ assert.strictEqual(typeof fs.rmdirIfExists, 'function'); });
+	it('.mkdirIfMissing is callable',      function(){ assert.strictEqual(typeof fs.mkdirIfMissing, 'function'); });
+
 	// These are only available on Mac OS X
 	it.skip('.lchown is callable',     function(){ assert.strictEqual(typeof fs.lchown, 'function'); });
 	it.skip('.lchmod is callable',     function(){ assert.strictEqual(typeof fs.lchmod, 'function'); });
 
-	describe('fs', function(){
+	describe('tests', function(){
 		
 		var test_dir = __dirname + "/tmp";
 		

@@ -4,9 +4,10 @@ var is = require('nor-is');
 var assert = require('assert');
 
 /* */
-describe('fs', function(){
+describe('sync-fs', function(){
 	var fs = require('../lib/index.js');
 	var SyncFileSystem = require('../lib/SyncFileSystem.js');
+	var SyncFilePath = require('../lib/SyncFilePath.js');
 	var SyncFileDescriptor = require('../lib/SyncFileDescriptor.js');
 
 	describe('.SyncFileSystem', function(){
@@ -15,9 +16,15 @@ describe('fs', function(){
 		});
 	});
 
-	describe('.SyncFileDescriptor', function(){
+	describe('.sync.Descriptor', function(){
 		it('should be same as SyncFileDescriptor', function(){
-			assert.strictEqual(fs.SyncFileDescriptor, SyncFileDescriptor);
+			assert.strictEqual(fs.sync.Descriptor, SyncFileDescriptor);
+		});
+	});
+
+	describe('.sync.Path', function(){
+		it('should be same as SyncFilePath', function(){
+			assert.strictEqual(fs.sync.Path, SyncFilePath);
 		});
 	});
 

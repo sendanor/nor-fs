@@ -113,10 +113,17 @@ The root of the library is an instance of [FileSystem](#class-filesystem).
 It also has these properties:
 
 * [fs.FileSystem](#class-filesystem)
-* [fs.FileDescriptor](#class-filedescriptor)
+* [fs.Path](#class-fs-path)
+* [fs.Descriptor](#class-fs-descriptor)
 * [fs.SyncFileSystem](#class-syncfilesystem)
-* [fs.SyncFileDescriptor](#class-syncfiledescriptor)
-* fs.sync -- Instance of class `SyncFileSystem`
+* [fs.sync.Path](#class-sync-path)
+* [fs.sync.Descriptor](#class-sync-descriptor)
+* fs.sync -- Instance of class `fs.SyncFileSystem`
+
+And these methods:
+
+* fs.path(name) -- Returns instance of `fs.Path(name)`
+* fs.sync.path(name) -- Returns instance of `fs.sync.Path(name)`
 
 Class FileSystem
 ----------------
