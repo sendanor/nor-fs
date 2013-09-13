@@ -20,7 +20,7 @@ chainable promises.
 Here's an example of creating a file named `hello.txt` and changing permissions:
 
 ```javascript
-fs.writeFile('hello.txt', 'Hello World').chmod('hello.txt', 600).chown('hello.txt', 1000, 1000).then(function() {
+fs.path('hello.txt').writeFile('Hello World').chmod(600).chown(1000, 1000).then(function() {
 	console.log('hello.txt created succesfully');
 }).fail(function(err) {
 	console.error('Error: Failed to create hello.txt: ' + err);
@@ -95,7 +95,6 @@ TODO
 
 ### Upcoming release
 
-* [Issue #1](https://github.com/Sendanor/nor-fs/issues/1) -- Class `FilePath` to shortcut calls like `fs.exists('test.txt')` to `fs.path('test.txt').exists()`
 
 ### Future releases
 
