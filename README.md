@@ -856,10 +856,12 @@ fs.open('foo.txt', 'r').then(function(d) {
 
 ### fd.fstat()
 
+Alias for [fd.stat](#fdstat).
+
 Returns an extended chainable promise.
 
 See example above 
-[fd.stat](#filedescriptor_prototype_stat).
+[fd.stat](#fdstat).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
 
@@ -867,7 +869,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fst
 
 ### fd.truncate(len)
 
-Alias for [fd.ftruncate](#filedescriptor_prototype_ftruncate_len).
+Alias for [fd.ftruncate](#fdftruncate-len).
 
 ```javascript
 fs.open('foo.txt', 'w').truncate(4).close().then(function() {
@@ -879,6 +881,8 @@ fs.open('foo.txt', 'w').truncate(4).close().then(function() {
 
 ### fd.ftruncate(len)
 
+Alias for [fd.truncate](#fdtruncate-len).
+
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
@@ -886,7 +890,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftr
 
 ### fd.chown(uid, gid)
 
-Alias for [fd.fchown](#filedescriptor_prototype_fchown_len).
+Alias for [fd.fchown](#fdfchown-uid-gid).
 
 ```javascript
 fs.open('foo.txt', 'w').chown(1000, 1000).close().then(function() {
@@ -897,7 +901,9 @@ fs.open('foo.txt', 'w').chown(1000, 1000).close().then(function() {
 ```
 
 
-### fd.fchown(uid, gid, callback)
+### fd.fchown(uid, gid)
+
+Alias for [fd.chown](#fdchown-uid-gid).
 
 Returns an extended chainable promise.
 
@@ -906,7 +912,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fch
 
 ### fd.chmod(mode)
 
-Alias for [fd.fchmod](#filedescriptor_prototype_fchmod_mode).
+Alias for [fd.fchmod](#fdfchmod-mode).
 
 ```javascript
 fs.open('foo.txt', 'w').chmod("0600").close().then(function() {
@@ -919,6 +925,8 @@ fs.open('foo.txt', 'w').chmod("0600").close().then(function() {
 
 ### fd.fchmod(mode)
 
+Alias for [fd.fchmod](#fdchmod-mode).
+
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
@@ -926,7 +934,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fch
 
 ### fd.utimes(atime, mtime)
 
-Alias for [fd.futimes](#filedescriptor_prototype_futimes_atime_mtime).
+Alias for [fd.futimes](#fdfutimes-atime-mtime).
 
 ```javascript
 var now = new Date();
@@ -938,6 +946,8 @@ fs.open('foo.txt', 'w').utimes(now, now).close().then(function() {
 ```
 
 ### fd.futimes(atime, mtime)
+
+Alias for [fd.utimes](#fdutimes-atime-mtime).
 
 Returns an extended chainable promise.
 
@@ -990,7 +1000,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rea
 
 ### fd.sync()
 
-Alias for [fd.fsync](#filedescriptor_prototype_fsync).
+Alias for [fd.fsync](#fdfsync).
 
 ```javascript
 var fd;
