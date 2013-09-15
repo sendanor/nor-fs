@@ -607,7 +607,7 @@ documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback
 Close a file descriptor. 
 Asynchronous close(2). Returns an extended chainable promise.
 
-See the example for [fs.open()](#filesystem_prototype_open_path_flags_mode).
+See the example for [fs.open()](#filesystemprototypeopenpath-flags-mode).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
