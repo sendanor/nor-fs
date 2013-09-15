@@ -178,7 +178,7 @@ The constructor of the `FileSystem` objects.
 
 **Warning!** You **should not** need to use it directly. However if you find any essential use for it in the userland, we would like hear it!
 
-### FileSystem.prototype.rename(oldPath, newPath)
+### fs.rename(oldPath, newPath)
 
 Renames a file from `oldPath` to `newPath`. Asynchronous 
 [rename(2)](http://linux.die.net/man/2/rename) which renames a file from `oldPath` to `newPath` and returns an extended chainable promise.
@@ -193,7 +193,7 @@ fs.rename('foo.txt', 'bar.txt').then(function(){
 
 See also [fs.rename from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_rename_oldpath_newpath_callback)
 
-### FileSystem.prototype.ftruncate(fd, len)
+### fs.ftruncate(fd, len)
 
 Truncates a file pointed by a file descriptor to a specified length. 
 Asynchronous [ftruncate(2)](http://linux.die.net/man/2/ftruncate) which returns an extended chainable promise.
@@ -213,7 +213,7 @@ returns an instance of `fs.Descriptor` which can be chained.
 
 See also [fs.ftruncate from Node.js API Documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
-### FileSystem.prototype.truncate(path, len)
+### fs.truncate(path, len)
 
 Truncates a file pointed by a path to a specified length.
 
@@ -229,7 +229,7 @@ fs.truncate('foo.txt', 1000).then(function() {
 
 See also [fs.truncate at Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_truncate_path_len_callback).
 
-### FileSystem.prototype.chown(path, uid, gid)
+### fs.chown(path, uid, gid)
 
 Change file owner and group. Asynchronous 
 [chown(2)](http://linux.die.net/man/2/chown) which returns an extended chainable promise.
@@ -246,7 +246,7 @@ See also [fs.chown from the original Node.js API documentation](http://nodejs.or
 
 **Warning!** It is automatically tested, but not so well, since normally users cannot change ownership of a file to other users.
 
-### FileSystem.prototype.fchown(fd, uid, gid)
+### fs.fchown(fd, uid, gid)
 
 Change file owner and group pointed by a file descriptor. 
 Asynchronous fchown(2) which returns an extended chainable promise.
@@ -266,7 +266,7 @@ returns an instance of `fs.Descriptor` which can be chained.
 
 See also [fs.fchown in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
 
-### FileSystem.prototype.lchown(path, uid, gid)
+### fs.lchown(path, uid, gid)
 
 Asynchronous lchown(2) which returns an extended chainable promise.
 
@@ -284,7 +284,7 @@ See also [fs.lchown in the original Node.js API documentation](http://nodejs.org
 
 **Warning!** It is **not** tested yet. I don't have a MAC OS X system.
 
-### FileSystem.prototype.chmod(path, mode)
+### fs.chmod(path, mode)
 
 Change file mode bits. Asynchronous chmod(2) which returns an extended 
 chainable promise.
@@ -300,7 +300,7 @@ fs.chmod('foo.txt', "0600").then(function() {
 See also [fs.chmod in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_chmod_path_mode_callback).
 
 
-### FileSystem.prototype.fchmod(fd, mode)
+### fs.fchmod(fd, mode)
 
 Change file mode bits.
 Asynchronous fchmod(2) which returns an extended chainable promise.
@@ -321,7 +321,7 @@ returns an instance of `fs.Descriptor` which can be chained.
 See also [fs.fchmod in the original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
 
 
-### FileSystem.prototype.lchmod(path, mode)
+### fs.lchmod(path, mode)
 
 Asynchronous lchmod(2) which returns an extended chainable promise.
 
@@ -340,7 +340,7 @@ See also [fs.lchmod in the original Node.js API documentation](http://nodejs.org
 **Warning!** It is **not** tested yet. I don't have a MAC OS X system.
 
 
-### FileSystem.prototype.stat(path)
+### fs.stat(path)
 
 Display file or file system status.
 Asynchronous stat(2) which returns a promise.
@@ -374,16 +374,17 @@ fs.stat('foo.txt').then(function(stat) {
   ctime: Sun Sep 15 2013 09:03:33 GMT+0300 (EEST) }
 ```
 
-### FileSystem.prototype.lstat(path)
+### fs.lstat(path)
 
 Asynchronous lstat(2) which returns a promise.
 
-`lstat()` is identical to [`stat()`](#filesystem_prototype_stat), except that if path is a symbolic link, then the link itself is stat-ed, not the file that it refers to.
+`lstat()` is identical to [`stat()`](#fsstat), except that if path is a 
+symbolic link, then the link itself is stat-ed, not the file that it refers to.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_lstat_path_callback).
 
 
-### FileSystem.prototype.fstat(fd)
+### fs.fstat(fd)
 
 Asynchronous fstat(2) which returns a promise.
 
@@ -405,7 +406,7 @@ returns an instance of `fs.Descriptor` which can be chained.
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
 
 
-### FileSystem.prototype.link(srcpath, dstpath)
+### fs.link(srcpath, dstpath)
 
 Make a new name for a file (by hard linking). Asynchronous link(2). Returns an 
 extended chainable promise.
@@ -421,7 +422,7 @@ fs.link('foo.txt', 'bar.txt').then(function() {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_link_srcpath_dstpath_callback).
 
 
-### FileSystem.prototype.symlink(srcpath, dstpath, [type])
+### fs.symlink(srcpath, dstpath, [type])
 
 Make a new name for a file (by symlinking). Asynchronous symlink(2). Returns an 
 extended chainable promise.
@@ -436,7 +437,7 @@ fs.symlink('foo.txt', 'bar.txt').then(function() {
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_symlink_srcpath_dstpath_type_callback).
 
-### FileSystem.prototype.readlink(path)
+### fs.readlink(path)
 
 Read value of a symbolic link. Asynchronous readlink(2). Returns an extended 
 chainable promise.
@@ -452,7 +453,7 @@ fs.readlink('foo.txt').then(function(linkString) {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readlink_path_callback).
 
 
-### FileSystem.prototype.realpath(path, [cache])
+### fs.realpath(path, [cache])
 
 Return the canonicalized absolute pathname. Asynchronous realpath(3). Returns 
 an extended chainable promise.
@@ -468,7 +469,7 @@ fs.realpath('foo.txt').then(function(resolvedPath) {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_realpath_path_cache_callback).
 
 
-### FileSystem.prototype.unlink(path)
+### fs.unlink(path)
 
 Delete a name and possibly the file it refers to. Asynchronous unlink(2). 
 Returns an extended chainable promise.
@@ -483,7 +484,7 @@ fs.unlink('foo.txt').then(function() {
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_unlink_path_callback).
 
-### FileSystem.prototype.unlinkIfExists(path)
+### fs.unlinkIfExists(path)
 
 Delete a name and possibly the file it refers to if that file exists. 
 Asynchronous unlink(2). Only tries to unlink if the file exists. Returns an 
@@ -498,7 +499,7 @@ fs.unlinkIfExists('foo.txt').then(function() {
 ```
 
 
-### FileSystem.prototype.rmdir(path)
+### fs.rmdir(path)
 
 Delete a directory. Asynchronous rmdir(2). Returns an extended chainable 
 promise.
@@ -513,7 +514,7 @@ fs.rmdir('foo').then(function() {
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
 
-### FileSystem.prototype.rmdirIfExists(path)
+### fs.rmdirIfExists(path)
 
 Delete a directory if it exists. 
 Asynchronous rmdir(2). Only tries to remove the directory if it exists. Returns an extended chainable promise.
@@ -529,7 +530,7 @@ fs.rmdirIfExists('foo').then(function() {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_rmdir_path_callback).
 
 
-### FileSystem.prototype.mkdir(path, [mode])
+### fs.mkdir(path, [mode])
 
 Create a directory.
 Asynchronous mkdir(2). Returns an extended chainable promise.
@@ -544,7 +545,7 @@ fs.mkdir('foo', "0755").then(function() {
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback).
 
-### FileSystem.prototype.mkdirIfMissing(path, [mode])
+### fs.mkdirIfMissing(path, [mode])
 
 Create a directory if it does not exist.
 Asynchronous mkdir(2). Only tries to create the directory if it does not already exist. Returns an extended chainable promise.
@@ -560,7 +561,7 @@ fs.mkdirIfMissing('foo', "0755").then(function() {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_mkdir_path_mode_callback).
 
 
-### FileSystem.prototype.readdir(path)
+### fs.readdir(path)
 
 Read directory entry. Asynchronous readdir(3). Returns an extended chainable 
 promise.
@@ -576,7 +577,7 @@ fs.readdir('foo').then(function(files) {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readdir_path_callback).
 
 
-### FileSystem.prototype.open(path, flags, [mode])
+### fs.open(path, flags, [mode])
 
 Open and possibly create a file or device.
 Asynchronous file open. See open(2). Returns an extended chainable promise.
@@ -602,7 +603,7 @@ See also [original Node.js API
 documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback).
 
 
-### FileSystem.prototype.close(fd)
+### fs.close(fd)
 
 Close a file descriptor. 
 Asynchronous close(2). Returns an extended chainable promise.
@@ -612,71 +613,200 @@ See the example for [fs.open()](#filesystemprototypeopenpath-flags-mode).
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
 
-### FileSystem.prototype.utimes(path, atime, mtime)
+### fs.utimes(path, atime, mtime)
 
 Change file timestamps of the file referenced by the supplied path.
 
 Returns an extended chainable promise.
 
+```javascript
+var now = new Date();
+fs.utimes('foo.txt', now, now).then(function() {
+	console.log('foo.txt times successfully changed.');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_utimes_path_atime_mtime_callback).
 
 
-### FileSystem.prototype.futimes(fd, atime, mtime)
+### fs.futimes(fd, atime, mtime)
 
 Change the file timestamps of a file referenced by the supplied file descriptor.
 
 Returns an extended chainable promise.
 
+```javascript
+var now = new Date();
+fs.open('foo.txt', 'r').then(function(fd){
+	return fs.futimes(fd.valueOf(), now, now).close(fd.valueOf());
+}).then(function() {
+	console.log('Truncated succesfully!');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
+**Note!** Usually there is no need to call this method because `fs.open()` 
+returns an instance of `fs.Descriptor` which can be chained.
+
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback).
 
 
-### FileSystem.prototype.fsync(fd)
+### fs.fsync(fd)
 
-Asynchronous fsync(2). 
-
+Synchronize a file's in-core state with storage device. Asynchronous fsync(2). 
 Returns an extended chainable promise.
+
+```javascript
+fs.open('foo.txt', 'r').then(function(fd){
+	return fs.futimes(fd.valueOf(), now, now).fsync(fd.valueOf()).close(fd.valueOf());
+}).then(function() {
+	console.log('Truncated succesfully!');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
+**Note!** Usually there is no need to call this method because `fs.open()` 
+returns an instance of `fs.Descriptor` which can be chained.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsync_fd_callback).
 
 
-### FileSystem.prototype.write(fd, buffer, offset, length, position)
+### fs.write(fd, buffer, offset, length, position)
 
 Returns an extended chainable promise which will on success pass on an object with properties `.written` and `.buffer`.
 
+```javascript
+fs.open('foo.txt', 'w').then(function(fd) {
+	var buffer = new Buffer("Hello World", "utf8");
+	return fs.write(fd.valueOf(), buffer, 0, buffer.length, null);
+}).then(function(results) {
+	console.log('Successfully wrote ' + results.written + ' bytes.');
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
+**Note!** Usually there is no need to call this method because `fs.open()` 
+returns an instance of `fs.Descriptor` which can be chained:
+
+```javascript
+var fd;
+fs.open('foo.txt', 'w').then(function(d) {
+	var buffer = new Buffer("Hello World", "utf8");
+	fd = d;
+	return fd.write(buffer, 0, buffer.length, null);
+}).then(function(results) {
+	console.log('Successfully wrote ' + results.written + ' bytes.');
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
+See also [original Node.js API 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
-### FileSystem.prototype.read(fd, buffer, offset, length, position)
+### fs.read(fd, buffer, offset, length, position)
 
 Returns an extended chainable promise which will on success pass on an object with properties `.bytesRead` and `.buffer`.
+
+```javascript
+var fd, buffer;
+fs.stat('foo.txt').then(function(stats) {
+	buffer = new Buffer(stats.size);
+	return fs.open('foo.txt', 'r');
+}).then(function(d) {
+	fd = d; 
+	return fs.read(fd.valueOf(), buffer, 0, buffer.length, null);
+}).then(function(results) {
+	var data = buffer.toString("utf8", 0, buffer.length);
+	console.log('Successfully read: ' + data);
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
+**Note!** Usually there is no need to call this method because `fs.open()` 
+returns an instance of `fs.Descriptor` which can be chained. See the example 
+for [fs.open()](#filesystemprototypeopenpath-flags-mode).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback).
 
 
-### FileSystem.prototype.readFile(filename, [options])
+### fs.readFile(filename, [options])
+
+Read file contents.
 
 Returns an extended chainable promise.
+
+```javascript
+fs.readFile('foo.txt', {encoding:'utf8'}).then(function(data) {
+	console.log('foo.txt: ' + data);
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_readfile_filename_options_callback).
 
 
-### FileSystem.prototype.writeFile(filename, data, [options])
+### fs.writeFile(filename, data, [options])
+
+Write file.
 
 Returns an extended chainable promise.
+
+```javascript
+fs.writeFile("foo.txt", "Hello World", {encoding:"utf8"}).then(function() {
+	console.log("Wrote foo.txt successfully");
+}).fail(function(err) {
+	console.error("Error: " + err);
+}).done();
+```
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_writefile_filename_data_options_callback).
 
 
-### FileSystem.prototype.appendFile(filename, data, [options])
+### fs.appendFile(filename, data, [options])
+
+Append to file.
 
 Returns an extended chainable promise.
+
+```javascript
+fs.appendFile("foo.txt", "Hello World", {encoding:"utf8"}).then(function() {
+	console.log("Appended to foo.txt successfully");
+}).fail(function(err) {
+	console.error("Error: " + err);
+}).done();
+```
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_appendfile_filename_data_options_callback).
 
 
-### FileSystem.prototype.exists(path)
+### fs.exists(path)
 
+Checks if a path exists.
 Returns an extended chainable promise.
+
+```javascript
+fs.exists("foo.txt").then(function(exists) {
+	if(exists) {
+		console.log("foo.txt exists");
+	} else {
+		console.log("foo.txt does not exist!");
+	}
+}).fail(function(err) {
+	console.error("Error: " + err);
+}).done();
+```
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_exists_path_callback).
 
@@ -705,9 +835,31 @@ Each `FileDescriptor` object will have a propery of `.fd`.
 
 Alias for [FileDescriptor.prototype.fstat](#filedescriptor_prototype_fstat).
 
+```javascript
+var fd, buffer;
+fs.open('foo.txt', 'r').then(function(d) {
+	fd = d;
+	return fd;
+}).stat().then(function(stats) {
+	buffer = new Buffer(stats.size);
+	return fd;
+}).then(function(fd) {
+	return fd.read(buffer, 0, buffer.length, null);
+}).then(function(results) {
+	var data = buffer.toString("utf8", 0, buffer.length);
+	console.log('Successfully read: ' + data);
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
 ### FileDescriptor.prototype.fstat()
 
 Returns an extended chainable promise.
+
+See example above 
+[FileDescriptor.prototype.stat](#filedescriptor_prototype_stat).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
 
@@ -716,6 +868,14 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fst
 ### FileDescriptor.prototype.truncate(len)
 
 Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftruncate_len).
+
+```javascript
+fs.open('foo.txt', 'w').truncate(4).close().then(function() {
+	console.log('Successfully truncated foo.txt to 4 bytes');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
 
 ### FileDescriptor.prototype.ftruncate(len)
 
@@ -727,6 +887,14 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftr
 ### FileDescriptor.prototype.chown(uid, gid)
 
 Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len).
+
+```javascript
+fs.open('foo.txt', 'w').chown(1000, 1000).close().then(function() {
+	console.log('Successfully changed foo.txt.');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
 
 
 ### FileDescriptor.prototype.fchown(uid, gid, callback)
@@ -740,6 +908,14 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fch
 
 Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mode).
 
+```javascript
+fs.open('foo.txt', 'w').chmod("0600").close().then(function() {
+	console.log('Successfully changed foo.txt.');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
 
 ### FileDescriptor.prototype.fchmod(mode)
 
@@ -752,6 +928,14 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fch
 
 Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_atime_mtime).
 
+```javascript
+var now = new Date();
+fs.open('foo.txt', 'w').utimes(now, now).close().then(function() {
+	console.log('Successfully changed foo.txt.');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
 
 ### FileDescriptor.prototype.futimes(atime, mtime)
 
@@ -764,6 +948,19 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fut
 
 Returns an extended chainable promise.
 
+```javascript
+var fd;
+var buffer = new Buffer("Hello World", "utf8");
+fs.open('foo.txt', 'w').then(function(d) {
+	return fd = d;
+}).write(buffer, 0, buffer.length, null).then(function(results) {
+	console.log('Successfully wrote ' + results.written + ' bytes.');
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
@@ -771,12 +968,41 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_wri
 
 Returns an extended chainable promise.
 
+```javascript
+var fd, buffer;
+fs.stat('foo.txt').then(function(stats) {
+	buffer = new Buffer(stats.size);
+	return fs.open('foo.txt', 'r');
+}).then(function(d) {
+	fd = d; 
+	return fd.read(buffer, 0, buffer.length, null);
+}).then(function(results) {
+	var data = buffer.toString("utf8", 0, buffer.length);
+	console.log('Successfully read: ' + data);
+	return fd.close();
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
+
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback).
 
 
 ### FileDescriptor.prototype.sync()
 
 Alias for [FileDescriptor.prototype.fsync](#filedescriptor_prototype_fsync).
+
+```javascript
+var fd;
+var buffer = new Buffer("Hello World", "utf8");
+fs.open('foo.txt', 'w').then(function(d) {
+	return fd = d;
+}).write(buffer, 0, buffer.length, null).sync().close().then(function() {
+	console.log('Successfully wrote to foo.txt');
+}).fail(function(err) {
+	console.error('Error: ' + err);
+}).done();
+```
 
 ### FileDescriptor.prototype.fsync()
 
@@ -793,62 +1019,65 @@ Class SyncFileSystem
 
 These are chainable synchronous wrappers for original calls like `require('fs').{call}Sync(...)`.
 
-### SyncFileSystem.prototype.rename(oldPath, newPath)
-### SyncFileSystem.prototype.ftruncate(fd, len)
-### SyncFileSystem.prototype.truncate(path, len)
-### SyncFileSystem.prototype.chown(path, uid, gid)
-### SyncFileSystem.prototype.lchown(path, uid, gid)
-### SyncFileSystem.prototype.fchown(fd, uid, gid)
-### SyncFileSystem.prototype.chmod(path, mode)
-### SyncFileSystem.prototype.fchmod(fd, mode)
-### SyncFileSystem.prototype.lchmod(path, mode)
-### SyncFileSystem.prototype.stat(path)
-### SyncFileSystem.prototype.lstat(path)
-### SyncFileSystem.prototype.fstat(fd)
-### SyncFileSystem.prototype.link(srcpath, dstpath)
-### SyncFileSystem.prototype.symlink(srcpath, dstpath, [type])
-### SyncFileSystem.prototype.readlink(path)
-### SyncFileSystem.prototype.realpath(path, [cache])
-### SyncFileSystem.prototype.unlink(path)
-### SyncFileSystem.prototype.rmdir(path)
-### SyncFileSystem.prototype.mkdir(path, [mode])
-### SyncFileSystem.prototype.readdir(path)
-### SyncFileSystem.prototype.close(fd)
-### SyncFileSystem.prototype.open(path, flags, [mode])
-### SyncFileSystem.prototype.utimes(path, atime, mtime)
-### SyncFileSystem.prototype.futimes(fd, atime, mtime)
-### SyncFileSystem.prototype.fsync(fd)
-### SyncFileSystem.prototype.write(fd, buffer, offset, length, position)
-### SyncFileSystem.prototype.read(fd, buffer, offset, length, position)
-### SyncFileSystem.prototype.readFile(filename, [options])
-### SyncFileSystem.prototype.writeFile(filename, data, [options])
-### SyncFileSystem.prototype.appendFile(filename, data, [options])
-### SyncFileSystem.prototype.exists(path)
+### fs.sync.rename(oldPath, newPath)
+### fs.sync.ftruncate(fd, len)
+### fs.sync.truncate(path, len)
+### fs.sync.chown(path, uid, gid)
+### fs.sync.lchown(path, uid, gid)
+### fs.sync.fchown(fd, uid, gid)
+### fs.sync.chmod(path, mode)
+### fs.sync.fchmod(fd, mode)
+### fs.sync.lchmod(path, mode)
+### fs.sync.stat(path)
+### fs.sync.lstat(path)
+### fs.sync.fstat(fd)
+### fs.sync.link(srcpath, dstpath)
+### fs.sync.symlink(srcpath, dstpath, [type])
+### fs.sync.readlink(path)
+### fs.sync.realpath(path, [cache])
+### fs.sync.unlink(path)
+### fs.sync.rmdir(path)
+### fs.sync.mkdir(path, [mode])
+### fs.sync.readdir(path)
+### fs.sync.close(fd)
+### fs.sync.open(path, flags, [mode])
 
-Class SyncFileDescriptor
+Returns with promise of an instance of `fs.sync.Descriptor`.
+
+### fs.sync.utimes(path, atime, mtime)
+### fs.sync.futimes(fd, atime, mtime)
+### fs.sync.fsync(fd)
+### fs.sync.write(fd, buffer, offset, length, position)
+### fs.sync.read(fd, buffer, offset, length, position)
+### fs.sync.readFile(filename, [options])
+### fs.sync.writeFile(filename, data, [options])
+### fs.sync.appendFile(filename, data, [options])
+### fs.sync.exists(path)
+
+Class fs.sync.Descriptor
 ------------------------
 
 These are chainable synchronous wrappers for original calls like `require('fs').{call}Sync(fd, ...)`.
 
-### SyncFileDescriptor.prototype.ftruncate(len)
-### SyncFileDescriptor.prototype.fchown(uid, gid)
-### SyncFileDescriptor.prototype.fchmod(mode)
-### SyncFileDescriptor.prototype.fstat()
-### SyncFileDescriptor.prototype.close()
-### SyncFileDescriptor.prototype.futimes(atime, mtime)
-### SyncFileDescriptor.prototype.fsync()
-### SyncFileDescriptor.prototype.write(buffer, offset, length, position)
-### SyncFileDescriptor.prototype.read(buffer, offset, length, position)
+### fs.sync.Descriptor.prototype.ftruncate(len)
+### fs.sync.Descriptor.prototype.fchown(uid, gid)
+### fs.sync.Descriptor.prototype.fchmod(mode)
+### fs.sync.Descriptor.prototype.fstat()
+### fs.sync.Descriptor.prototype.close()
+### fs.sync.Descriptor.prototype.futimes(atime, mtime)
+### fs.sync.Descriptor.prototype.fsync()
+### fs.sync.Descriptor.prototype.write(buffer, offset, length, position)
+### fs.sync.Descriptor.prototype.read(buffer, offset, length, position)
 
 Support for fs.ReadStream and fs.WriteStream
 --------------------------------------------
 
 **Warning!** These are **not** implemented yet.
 
-### FileSystem.prototype.createReadStream(path, [options])
+### fs.createReadStream(path, [options])
 ### Class: fs.ReadStream
 #### Event: 'open'
-### FileSystem.prototype.createWriteStream(path, [options])
+### fs.createWriteStream(path, [options])
 ### Class: fs.WriteStream
 #### Event: 'open'
 #### file.bytesWritten
@@ -858,7 +1087,7 @@ Support for watch features
 
 **Warning!** These are **not** implemented yet.
 
-### FileSystem.prototype.watchFile(filename, [options], listener)
+### fs.watchFile(filename, [options], listener)
 
 **Warning!** It is **not** implemented yet.
 
@@ -866,7 +1095,7 @@ Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_watchfile_filename_options_listener).
 
-### FileSystem.prototype.unwatchFile(filename, [listener])
+### fs.unwatchFile(filename, [listener])
 
 **Warning!** It is **not** implemented yet.
 
@@ -874,7 +1103,7 @@ Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
-### FileSystem.prototype.watch(filename, [options], [listener])
+### fs.watch(filename, [options], [listener])
 
 **Warning!** It is **not** implemented yet.
 
