@@ -5,6 +5,8 @@ nor-fs
 
 Asynchronous filesystem library with chainable Q-based promises for [Node.js](http://nodejs.org/).
 
+It also has [chainable synchronous interface](#synchronous-methods).
+
 Sample Use Case
 ---------------
 
