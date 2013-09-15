@@ -608,7 +608,7 @@ documentation](http://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback
 Close a file descriptor. 
 Asynchronous close(2). Returns an extended chainable promise.
 
-See the example for [fs.open()](#filesystemprototypeopenpath-flags-mode).
+See the example for [fs.open()](#fsopenpath-flags-mode).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_close_fd_callback).
 
@@ -735,7 +735,7 @@ fs.stat('foo.txt').then(function(stats) {
 
 **Note!** Usually there is no need to call this method because `fs.open()` 
 returns an instance of `fs.Descriptor` which can be chained. See the example 
-for [fs.open()](#filesystemprototypeopenpath-flags-mode).
+for [fs.open()](#fsopenpath-flags-mode).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback).
 
@@ -831,9 +831,9 @@ Each `FileDescriptor` object will have a propery of `.fd`.
 
 
 
-### FileDescriptor.prototype.stat()
+### fd.stat()
 
-Alias for [FileDescriptor.prototype.fstat](#filedescriptor_prototype_fstat).
+Alias for [fd.fstat](#fdfstat).
 
 ```javascript
 var fd, buffer;
@@ -854,20 +854,20 @@ fs.open('foo.txt', 'r').then(function(d) {
 }).done();
 ```
 
-### FileDescriptor.prototype.fstat()
+### fd.fstat()
 
 Returns an extended chainable promise.
 
 See example above 
-[FileDescriptor.prototype.stat](#filedescriptor_prototype_stat).
+[fd.stat](#filedescriptor_prototype_stat).
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fstat_fd_callback).
 
 
 
-### FileDescriptor.prototype.truncate(len)
+### fd.truncate(len)
 
-Alias for [FileDescriptor.prototype.ftruncate](#filedescriptor_prototype_ftruncate_len).
+Alias for [fd.ftruncate](#filedescriptor_prototype_ftruncate_len).
 
 ```javascript
 fs.open('foo.txt', 'w').truncate(4).close().then(function() {
@@ -877,16 +877,16 @@ fs.open('foo.txt', 'w').truncate(4).close().then(function() {
 }).done();
 ```
 
-### FileDescriptor.prototype.ftruncate(len)
+### fd.ftruncate(len)
 
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_ftruncate_fd_len_callback).
 
 
-### FileDescriptor.prototype.chown(uid, gid)
+### fd.chown(uid, gid)
 
-Alias for [FileDescriptor.prototype.fchown](#filedescriptor_prototype_fchown_len).
+Alias for [fd.fchown](#filedescriptor_prototype_fchown_len).
 
 ```javascript
 fs.open('foo.txt', 'w').chown(1000, 1000).close().then(function() {
@@ -897,16 +897,16 @@ fs.open('foo.txt', 'w').chown(1000, 1000).close().then(function() {
 ```
 
 
-### FileDescriptor.prototype.fchown(uid, gid, callback)
+### fd.fchown(uid, gid, callback)
 
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchown_fd_uid_gid_callback).
 
 
-### FileDescriptor.prototype.chmod(mode)
+### fd.chmod(mode)
 
-Alias for [FileDescriptor.prototype.fchmod](#filedescriptor_prototype_fchmod_mode).
+Alias for [fd.fchmod](#filedescriptor_prototype_fchmod_mode).
 
 ```javascript
 fs.open('foo.txt', 'w').chmod("0600").close().then(function() {
@@ -917,16 +917,16 @@ fs.open('foo.txt', 'w').chmod("0600").close().then(function() {
 ```
 
 
-### FileDescriptor.prototype.fchmod(mode)
+### fd.fchmod(mode)
 
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fchmod_fd_mode_callback).
 
 
-### FileDescriptor.prototype.utimes(atime, mtime)
+### fd.utimes(atime, mtime)
 
-Alias for [FileDescriptor.prototype.futimes](#filedescriptor_prototype_futimes_atime_mtime).
+Alias for [fd.futimes](#filedescriptor_prototype_futimes_atime_mtime).
 
 ```javascript
 var now = new Date();
@@ -937,14 +937,14 @@ fs.open('foo.txt', 'w').utimes(now, now).close().then(function() {
 }).done();
 ```
 
-### FileDescriptor.prototype.futimes(atime, mtime)
+### fd.futimes(atime, mtime)
 
 Returns an extended chainable promise.
 
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_futimes_fd_atime_mtime_callback).
 
 
-### FileDescriptor.prototype.write(buffer, offset, length, position)
+### fd.write(buffer, offset, length, position)
 
 Returns an extended chainable promise.
 
@@ -964,7 +964,7 @@ fs.open('foo.txt', 'w').then(function(d) {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback).
 
 
-### FileDescriptor.prototype.read(buffer, offset, length, position)
+### fd.read(buffer, offset, length, position)
 
 Returns an extended chainable promise.
 
@@ -988,9 +988,9 @@ fs.stat('foo.txt').then(function(stats) {
 See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_read_buffer_offset_length_position_callback).
 
 
-### FileDescriptor.prototype.sync()
+### fd.sync()
 
-Alias for [FileDescriptor.prototype.fsync](#filedescriptor_prototype_fsync).
+Alias for [fd.fsync](#filedescriptor_prototype_fsync).
 
 ```javascript
 var fd;
@@ -1004,7 +1004,7 @@ fs.open('foo.txt', 'w').then(function(d) {
 }).done();
 ```
 
-### FileDescriptor.prototype.fsync()
+### fd.fsync()
 
 Returns an extended chainable promise.
 
