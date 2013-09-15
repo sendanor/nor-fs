@@ -903,7 +903,7 @@ fs.open("foo.txt", "w").chown(1000, 1000).close().then(function() {
 
 ### fd.fchown(uid, gid)
 
-Alias for [fd.chown](#fdchown-uid-gid).
+Alias for [fd.chown](#fdchownuid-gid).
 
 Returns an extended chainable promise.
 
@@ -912,7 +912,7 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fch
 
 ### fd.chmod(mode)
 
-Alias for [fd.fchmod](#fdfchmod-mode).
+Alias for [fd.fchmod](#fdfchmodmode).
 
 ```javascript
 fs.open("foo.txt", "w").chmod("0600").close().then(function() {
