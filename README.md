@@ -1071,15 +1071,15 @@ Class fs.sync.Descriptor
 These are chainable synchronous wrappers for original calls like `require("fs").{call}Sync(fd, ...)`.
 
 ### new fs.sync.Descriptor(fd)
-### fd.ftruncate(len)
-### fd.fchown(uid, gid)
-### fd.fchmod(mode)
-### fd.fstat()
-### fd.close()
-### fd.futimes(atime, mtime)
-### fd.fsync()
-### fd.write(buffer, offset, length, position)
-### fd.read(buffer, offset, length, position)
+### syncfd.ftruncate(len)
+### syncfd.fchown(uid, gid)
+### syncfd.fchmod(mode)
+### syncfd.fstat()
+### syncfd.close()
+### syncfd.futimes(atime, mtime)
+### syncfd.fsync()
+### syncfd.write(buffer, offset, length, position)
+### syncfd.read(buffer, offset, length, position)
 
 Support for fs.ReadStream and fs.WriteStream
 --------------------------------------------
