@@ -1024,11 +1024,12 @@ See [original Node.js API documentation](http://nodejs.org/api/fs.html#fs_fs_fsy
 
 
 
-Class SyncFileSystem
---------------------
+Class fs.SyncFileSystem
+------------------------
 
 These are chainable synchronous wrappers for original calls like `require("fs").{call}Sync(...)`.
 
+### new fs.SyncFileSystem()
 ### fs.sync.rename(oldPath, newPath)
 ### fs.sync.ftruncate(fd, len)
 ### fs.sync.truncate(path, len)
@@ -1069,15 +1070,16 @@ Class fs.sync.Descriptor
 
 These are chainable synchronous wrappers for original calls like `require("fs").{call}Sync(fd, ...)`.
 
-### fs.sync.Descriptor.prototype.ftruncate(len)
-### fs.sync.Descriptor.prototype.fchown(uid, gid)
-### fs.sync.Descriptor.prototype.fchmod(mode)
-### fs.sync.Descriptor.prototype.fstat()
-### fs.sync.Descriptor.prototype.close()
-### fs.sync.Descriptor.prototype.futimes(atime, mtime)
-### fs.sync.Descriptor.prototype.fsync()
-### fs.sync.Descriptor.prototype.write(buffer, offset, length, position)
-### fs.sync.Descriptor.prototype.read(buffer, offset, length, position)
+### new fs.sync.Descriptor(fd)
+### fd.ftruncate(len)
+### fd.fchown(uid, gid)
+### fd.fchmod(mode)
+### fd.fstat()
+### fd.close()
+### fd.futimes(atime, mtime)
+### fd.fsync()
+### fd.write(buffer, offset, length, position)
+### fd.read(buffer, offset, length, position)
 
 Support for fs.ReadStream and fs.WriteStream
 --------------------------------------------
