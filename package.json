@@ -58,7 +58,7 @@
   "license": "MIT",
   "bugs": {
     "mail" : "info@sendanor.com",
-    "web" : "https://github.com/sendanor/nor-fs/issues"
+    "url" : "https://github.com/sendanor/nor-fs/issues"
   },
   "dependencies": {
     "q": ">= 1.0.1 <2.0.0",
