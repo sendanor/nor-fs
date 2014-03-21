@@ -61,8 +61,8 @@
     "web" : "https://github.com/sendanor/nor-fs/issues"
   },
   "dependencies": {
-    "q": ">= 1.0.0 <2.0.0",
-    "nor-extend": ">= 0.1.15 < 0.2.0",
+    "q": ">= 1.0.1 <2.0.0",
+    "nor-extend": ">= 0.1.16 < 0.2.0",
     "nor-is": ">= 0.1.10 < 0.2.0"
   },
   "devDependencies": {
