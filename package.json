@@ -1,6 +1,6 @@
 {
   "name": "nor-fs",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Asynchronous file system library with chainable Q promises for Node.js",
   "main": "lib/index.js",
   "scripts": {
@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "q": ">= 1.0.1 <2.0.0",
-    "nor-extend": ">= 0.1.16 < 0.2.0",
+    "nor-extend": ">= 0.1.17 < 0.2.0",
     "nor-is": ">= 0.1.11 < 0.2.0"
   },
   "devDependencies": {
