@@ -128,27 +128,27 @@ describe('fs-path', function(){
 		it('.path().stat() can detect mode=0644 and size=11', function(){
 			return fs.path(test_dir + '/test1.txt').stat().then(function(f) {
 				assert.strictEqual( f.size, 11 );
-				assert.strictEqual( f.mode, parseInt('0644', 8) );
+				assert.strictEqual( f.mode, parseInt('100644', 8) );
 			});
 		});
 
 		it('.path().chmod() can chmod tmp/test1.txt to 0600 -- using mode as string', function(){
 			var p = fs.path(test_dir + '/test1.txt');
 			return p.stat().then(function(f) {
-				assert.strictEqual( f.mode, parseInt('0644', 8) );
+				assert.strictEqual( f.mode, parseInt('100644', 8) );
 				return p;
 			}).chmod('0600').stat().then(function(f) {
-				assert.strictEqual( f.mode, parseInt('0600', 8) );
+				assert.strictEqual( f.mode, parseInt('100600', 8) );
 			});
 		});
 
 		it('.path().chmod() can chmod tmp/test1.txt to 0600 -- using mode as number', function(){
 			var p = fs.path(test_dir + '/test1.txt');
 			return p.stat().then(function(f) {
-				assert.strictEqual( f.mode, parseInt('0644', 8) );
+				assert.strictEqual( f.mode, parseInt('100644', 8) );
 				return p;
 			}).chmod(parseInt('0600', 8)).stat().then(function(f) {
-				assert.strictEqual( f.mode, parseInt('0600', 8) );
+				assert.strictEqual( f.mode, parseInt('100600', 8) );
 			});
 		});
 

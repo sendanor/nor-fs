@@ -147,7 +147,7 @@ describe('fs', function(){
 		it('.stat() can detect mode=0644 and size=11', function(){
 			return fs.stat(test_dir + '/test1.txt').then(function(f) {
 				assert.strictEqual( f.size, 11 );
-				assert.strictEqual( f.mode, parseInt('0644', 8) );
+				assert.strictEqual( f.mode, parseInt('100644', 8) );
 			});
 		});
 
