@@ -1,7 +1,6 @@
 /* Generic Node.js FileSystem Library */
 "use strict";
 
-var Q = require('q');
 var extend = require('nor-extend');
 var bindings = require('./qfs.js');
 var FileDescriptor = require('./FileDescriptor.js');

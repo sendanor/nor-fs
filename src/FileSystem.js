@@ -1,8 +1,7 @@
 /* Generic Node.js FileSystem Library */
 "use strict";
 
-var FS = require('fs');
-var Q = require('q');
+//var FS = require('fs');
 var extend = require('nor-extend');
 var bindings = require('./qfs.js');
 var FileDescriptor = require('./FileDescriptor.js');
@@ -44,7 +43,7 @@ function FileSystem() {
 		return;
 	}
 	FileSystem.prototype[key] = function() {
-		var self = this;
+		//var self = this;
 		var args = Array.prototype.slice.call(arguments);
 		var p = bindings[key].apply(bindings, args);
 		return extend.promise( [FileSystem, FileDescriptor], p);
@@ -58,7 +57,7 @@ function FileSystem() {
 		return;
 	}
 	FileSystem.prototype[key] = function() {
-		var self = this;
+		//var self = this;
 		var args = Array.prototype.slice.call(arguments);
 		var p = bindings[key].apply(bindings, args);
 		p = p.then(function(fd) {

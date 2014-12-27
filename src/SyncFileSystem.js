@@ -51,7 +51,7 @@ function SyncFileSystem() {
 		return;
 	}
 	SyncFileSystem.prototype[key] = function() {
-		var self = this;
+		//var self = this;
 		var args = Array.prototype.slice.call(arguments);
 		var fd = FS[key+'Sync'].apply(FS, args);
 		return new SyncFileDescriptor(fd);

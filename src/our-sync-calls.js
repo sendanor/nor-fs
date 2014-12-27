@@ -1,7 +1,6 @@
 /* Generic Node.js FileSystem Library */
 "use strict";
 
-var util = require('util');
 var FS = require('fs');
 var fs = {};
 
