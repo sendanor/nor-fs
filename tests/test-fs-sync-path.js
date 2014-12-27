@@ -6,10 +6,10 @@ var assert = require('assert');
 /* */
 describe('fs-sync-path', function(){
 
-	var SyncFileSystem = require('../lib/SyncFileSystem.js');
-	var SyncFilePath = require('../lib/SyncFilePath.js');
+	var SyncFileSystem = require('../src/SyncFileSystem.js');
+	var SyncFilePath = require('../src/SyncFilePath.js');
 
-	var syncfs = require('../lib/index.js').sync;
+	var syncfs = require('../src/index.js').sync;
 
 	it('should be an instance of FileSystem', function(){
 		assert.strictEqual(true, is.objOf(syncfs, SyncFileSystem));

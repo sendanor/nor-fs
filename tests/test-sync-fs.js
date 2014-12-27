@@ -1,14 +1,15 @@
 "use strict";
 
+var debug = require('nor-debug');
 var is = require('nor-is');
 var assert = require('assert');
 
 /* */
 describe('sync-fs', function(){
-	var fs = require('../lib/index.js');
-	var SyncFileSystem = require('../lib/SyncFileSystem.js');
-	var SyncFilePath = require('../lib/SyncFilePath.js');
-	var SyncFileDescriptor = require('../lib/SyncFileDescriptor.js');
+	var fs = require('../src/index.js');
+	var SyncFileSystem = require('../src/SyncFileSystem.js');
+	var SyncFilePath = require('../src/SyncFilePath.js');
+	var SyncFileDescriptor = require('../src/SyncFileDescriptor.js');
 
 	describe('.SyncFileSystem', function(){
 		it('should be same as SyncFileSystem', function(){
@@ -71,19 +72,23 @@ describe('sync', function(){
 	it.skip('.lchmod is callable',     function(){ assert.strictEqual(typeof syncfs.lchmod, 'function'); });
 
 	describe('tests', function(){
-		
+
 		var test_dir = __dirname + "/tmp";
-		
+
 		beforeEach(function(){
-			syncfs.unlinkIfExists(test_dir + '/test1.txt')
+			return fs.unlinkIfExists(test_dir + '/test1.txt')
 			  .unlinkIfExists(test_dir + '/test2.txt')
 			  .unlinkIfExists(test_dir + '/test3.txt')
-			  .mkdirIfMissing(test_dir, "0700")
-			  .writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"});
+			  .mkdirIfMissing(test_dir, parseInt("0700", 8))
+			  .writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:parseInt("0644", 8)})
+			  .stat(test_dir + '/test1.txt').then(function(f) {
+				assert.strictEqual( f.size, 'Hello World'.length );
+				assert.strictEqual( f.mode, parseInt("100644", 8) );
+			});
 		});
 
 		afterEach(function(){
-			syncfs.unlinkIfExists(test_dir + '/test1.txt')
+			return fs.unlinkIfExists(test_dir + '/test1.txt')
 			  .unlinkIfExists(test_dir + '/test2.txt')
 			  .unlinkIfExists(test_dir + '/test3.txt')
 			  .rmdirIfExists(test_dir);
@@ -101,10 +106,24 @@ describe('sync', function(){
 			assert.strictEqual(exists, true);
 		});
 
-		it('.writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644)', function(){
+		it('.writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644) -- using mode as string', function(){
 			var exists = syncfs.writeFile(test_dir + '/test3.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).exists(test_dir + '/test3.txt');
 			assert.ok( ((exists === false) || (exists === true)) ? true : false );
 			assert.strictEqual(exists, true);
+
+			var f = syncfs.stat(test_dir + '/test3.txt');
+			assert.strictEqual( f.size, 'Hello World'.length );
+			assert.strictEqual( f.mode, parseInt("100644", 8) );
+		});
+
+		it('.writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644) -- using mode as number', function(){
+			var exists = syncfs.writeFile(test_dir + '/test3.txt', 'Hello World', {encoding:'utf8', mode:parseInt("0644", 8)}).exists(test_dir + '/test3.txt');
+			assert.ok( ((exists === false) || (exists === true)) ? true : false );
+			assert.strictEqual(exists, true);
+
+			var f = syncfs.stat(test_dir + '/test3.txt');
+			assert.strictEqual( f.size, 'Hello World'.length );
+			assert.strictEqual( f.mode, parseInt("100644", 8) );
 		});
 
 		it('.exists() can detect tmp/test1.txt', function(){
@@ -126,14 +145,21 @@ describe('sync', function(){
 		it('.stat() can detect mode=0644 and size=11', function(){
 			var f = syncfs.stat(test_dir + '/test1.txt');
 			assert.strictEqual( f.size, 11 );
-			assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+			assert.strictEqual( f.mode, parseInt('100644', 8) );
 		});
 
-		it('.chmod() can chmod tmp/test1.txt to 0600', function(){
+		it('.chmod() can chmod tmp/test1.txt to 0600 -- using mode as string', function(){
 			var f = syncfs.stat(test_dir + '/test1.txt');
-			assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+			assert.strictEqual( f.mode, parseInt("100644", 8) );
 			f = syncfs.chmod(test_dir + '/test1.txt', '0600').stat(test_dir + '/test1.txt')
-			assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+			assert.strictEqual( f.mode, parseInt("100600", 8) );
+		});
+
+		it('.chmod() can chmod tmp/test1.txt to 0600 -- using mode as number', function(){
+			var f = syncfs.stat(test_dir + '/test1.txt');
+			assert.strictEqual( f.mode, parseInt("100644", 8) );
+			f = syncfs.chmod(test_dir + '/test1.txt', parseInt('0600', 8)).stat(test_dir + '/test1.txt')
+			assert.strictEqual( f.mode, parseInt("100600", 8) );
 		});
 
 		it('.truncate() can truncate tmp/test1.txt to size 8', function(){
@@ -283,7 +309,9 @@ describe('sync', function(){
 				assert.strictEqual( f.ino, orig.ino );
 				assert.strictEqual( f.size, orig.size );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
@@ -309,7 +337,9 @@ describe('sync', function(){
 				f = fd.truncate(8).stat();
 				assert.strictEqual( f.size, 8 );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
@@ -326,7 +356,9 @@ describe('sync', function(){
 				assert.strictEqual( f.uid, process.getuid() );
 				assert.strictEqual( f.gid, process.getgid() );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
@@ -342,37 +374,73 @@ describe('sync', function(){
 				assert.strictEqual( f.uid, process.getuid() );
 				assert.strictEqual( f.gid, process.getgid() );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
-		it('fd.chmod() can chmod tmp/test1.txt to 0600', function(){
+		it('fd.chmod() can chmod tmp/test1.txt to 0600 -- using mode as string', function(){
 			var fd, f;
 			try {
 				f = syncfs.stat(test_dir + '/test1.txt');
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				assert.strictEqual( f.mode, parseInt("100644", 8) );
 				fd = syncfs.open(test_dir + '/test1.txt', 'w+');
 				f = fd.chmod('0600').stat();
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+				assert.strictEqual( f.mode, parseInt("100600", 8) );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
-		it('.chmod(fd) can chmod tmp/test1.txt to 0600', function(){
+		it('fd.chmod() can chmod tmp/test1.txt to 0600 -- using mode as number', function(){
 			var fd, f;
 			try {
 				f = syncfs.stat(test_dir + '/test1.txt');
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+				assert.strictEqual( f.mode, parseInt("100644", 8) );
 				fd = syncfs.open(test_dir + '/test1.txt', 'w+');
-				f = syncfs.fchmod(fd.valueOf(), '0600').fstat(fd.valueOf());
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
+				f = fd.chmod(parseInt('0600', 8)).stat();
+				assert.strictEqual( f.mode, parseInt("100600", 8) );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
-		// HERE
+		it('.chmod(fd) can chmod tmp/test1.txt to 0600 -- using mode as string', function(){
+			var fd, f;
+			try {
+				f = syncfs.stat(test_dir + '/test1.txt');
+				assert.strictEqual( f.mode, parseInt("100644", 8) );
+				fd = syncfs.open(test_dir + '/test1.txt', 'w+');
+				f = syncfs.fchmod(fd.valueOf(), '0600').fstat(fd.valueOf());
+				assert.strictEqual( f.mode, parseInt("100600", 8) );
+			} finally {
+				if(fd) {
+					fd.close();
+				}
+			}
+		});
+
+		it('.chmod(fd) can chmod tmp/test1.txt to 0600 -- using mode as number', function(){
+			var fd, f;
+			try {
+
+				f = syncfs.stat(test_dir + '/test1.txt');
+				assert.strictEqual( f.mode, parseInt("100644", 8) );
+
+				fd = syncfs.open(test_dir + '/test1.txt', 'w+');
+				f = syncfs.fchmod(fd.valueOf(), parseInt('0600', 8)).fstat(fd.valueOf());
+				assert.strictEqual( f.mode, parseInt("100600", 8) );
+			} finally {
+				if(fd) {
+					fd.close();
+				}
+			}
+		});
 
 		it('fd.utimes() can change file timestamps', function(){
 			var orig, fd, f;
@@ -398,7 +466,9 @@ describe('sync', function(){
 				assert.strictEqual( f.size, orig.size );
 				assert.strictEqual( f.ino, orig.ino );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 
@@ -426,7 +496,9 @@ describe('sync', function(){
 				assert.strictEqual( f.size, orig.size );
 				assert.strictEqual( f.ino, orig.ino );
 			} finally {
-				fd.close();
+				if(fd) {
+					fd.close();
+				}
 			}
 		});
 

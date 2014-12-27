@@ -1,6 +1,7 @@
 /* Generic Node.js FileSystem Library */
 "use strict";
 
+var FUNCTION = require('nor-function');
 var FS = require('fs');
 var fs = {};
 
@@ -8,14 +9,14 @@ var fs = {};
 fs.unlinkIfExistsSync = function() {
 	var args = Array.prototype.slice.call(arguments);
 	if(!FS.existsSync(args[0])) { return; }
-	FS.unlinkSync.apply(FS, args);
+	FUNCTION(FS.unlinkSync).apply(FS, args);
 };
 
 /** Rmdir the path if it exists, otherwise do nothing. */
 fs.rmdirIfExistsSync = function() {
 	var args = Array.prototype.slice.call(arguments);
 	if(!FS.existsSync(args[0])) { return; }
-	FS.rmdirSync.apply(FS, args);
+	FUNCTION(FS.rmdirSync).apply(FS, args);
 };
 
 /** Create empty file in the path it is missing, otherwise do nothing. */
@@ -28,7 +29,7 @@ fs.rmdirIfExistsSync = function() {
 fs.mkdirIfMissingSync = function() {
 	var args = Array.prototype.slice.call(arguments);
 	if(FS.existsSync(args[0])) { return; }
-	FS.mkdirSync.apply(FS, args);
+	FUNCTION(FS.mkdirSync).apply(FS, args);
 };
 
 // Exports

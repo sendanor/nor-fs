@@ -6,9 +6,9 @@ describe('fs-path', function(){
 	var Q = require('q');
 	Q.longStackSupport = true;
 
-	var FileSystem = require('../lib/FileSystem.js');
-	var FilePath = require('../lib/FilePath.js');
-	var fs = require('../lib/index.js');
+	var FileSystem = require('../src/FileSystem.js');
+	var FilePath = require('../src/FilePath.js');
+	var fs = require('../src/index.js');
 	var is = require('nor-is');
 	var assert = require('assert');
 
@@ -49,7 +49,7 @@ describe('fs-path', function(){
 		it('.writeFile is callable',  function(){ assert.strictEqual(typeof FilePath.prototype.writeFile, 'function'); });
 		it('.appendFile is callable', function(){ assert.strictEqual(typeof FilePath.prototype.appendFile, 'function'); });
 		it('.exists is callable',     function(){ assert.strictEqual(typeof FilePath.prototype.exists, 'function'); });
-	
+
 		it('.unlinkIfExists is callable',     function(){ assert.strictEqual(typeof FilePath.prototype.unlinkIfExists, 'function'); });
 		it('.rmdirIfExists is callable',      function(){ assert.strictEqual(typeof FilePath.prototype.rmdirIfExists, 'function'); });
 		it('.mkdirIfMissing is callable',      function(){ assert.strictEqual(typeof FilePath.prototype.mkdirIfMissing, 'function'); });
@@ -61,147 +61,124 @@ describe('fs-path', function(){
 	});
 
 	describe('fs', function(){
-		
+
 		var test_dir = __dirname + "/tmp";
-		
-		beforeEach(function(done){
-			fs.unlinkIfExists(test_dir + '/test1.txt')
+
+		beforeEach(function(){
+			return fs.unlinkIfExists(test_dir + '/test1.txt')
 			  .$unlinkIfExists(test_dir + '/test2.txt')
 			  .$unlinkIfExists(test_dir + '/test3.txt')
 			  .$mkdirIfMissing(test_dir, "0700")
-			  .$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"}).then(function(fs) {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			  .$writeFile(test_dir + '/test1.txt', 'Hello World', {encoding:'utf8', mode:"0644"});
 		});
 
-		afterEach(function(done){
-			fs.unlinkIfExists(test_dir + '/test1.txt')
+		afterEach(function(){
+			return fs.unlinkIfExists(test_dir + '/test1.txt')
 			  .$unlinkIfExists(test_dir + '/test2.txt')
 			  .$unlinkIfExists(test_dir + '/test3.txt')
-			  .$rmdirIfExists(test_dir)
-			  .then(function(fs) {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			  .$rmdirIfExists(test_dir);
 		});
 
-		it('.path().writeFile() can create tmp/test3.txt', function(done){
-			fs.path(test_dir + '/test3.txt').writeFile('Hello World').$exists().then(function(exists) {
+		it('.path().writeFile() can create tmp/test3.txt', function(){
+			return fs.path(test_dir + '/test3.txt').writeFile('Hello World').$exists().then(function(exists) {
 				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				assert.strictEqual(exists, true);
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().writeFile() can create tmp/test3.txt (with encoding:utf8)', function(done){
-			fs.path(test_dir + '/test3.txt').writeFile('Hello World', {encoding:'utf8'}).$exists().then(function(exists) {
+		it('.path().writeFile() can create tmp/test3.txt (with encoding:utf8)', function(){
+			return fs.path(test_dir + '/test3.txt').writeFile('Hello World', {encoding:'utf8'}).$exists().then(function(exists) {
 				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				assert.strictEqual(exists, true);
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644)', function(done){
-			fs.path(test_dir + '/test3.txt').writeFile('Hello World', {encoding:'utf8', mode:"0644"}).$exists().then(function(exists) {
+		it('.path().writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644) -- using mode as string', function(){
+			return fs.path(test_dir + '/test3.txt').writeFile('Hello World', {encoding:'utf8', mode:"0644"}).$exists().then(function(exists) {
 				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				assert.strictEqual(exists, true);
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().exists() can detect tmp/test1.txt', function(done){
-			fs.path(test_dir + '/test1.txt').exists().then(function(exists) {
+		it('.path().writeFile() can create tmp/test3.txt (with encoding:utf8, mode:0644) -- using mode as number', function(){
+			return fs.path(test_dir + '/test3.txt').writeFile('Hello World', {encoding:'utf8', mode:parseInt("0644", 8)}).$exists().then(function(exists) {
 				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				assert.strictEqual(exists, true);
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().exists() cannot detect tmp/test2.txt', function(done){
-			fs.path(test_dir + '/test2.txt').exists().then(function(exists) {
+		it('.path().exists() can detect tmp/test1.txt', function(){
+			return fs.path(test_dir + '/test1.txt').exists().then(function(exists) {
+				assert.ok( ((exists === false) || (exists === true)) ? true : false );
+				assert.strictEqual(exists, true);
+			});
+		});
+
+		it('.path().exists() cannot detect tmp/test2.txt', function(){
+			return fs.path(test_dir + '/test2.txt').exists().then(function(exists) {
 				assert.ok( ((exists === false) || (exists === true)) ? true : false );
 				assert.strictEqual(exists, false);
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().rename() can rename tmp/test1.txt to tmp/test2.txt', function(done){
-			fs.path(test_dir + '/test1.txt').rename(test_dir+'/test2.txt').then(function(fs) {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+		it('.path().rename() can rename tmp/test1.txt to tmp/test2.txt', function(){
+			return fs.path(test_dir + '/test1.txt').rename(test_dir+'/test2.txt');
 		});
 
-		it('.path().stat() can detect mode=0644 and size=11', function(done){
-			fs.path(test_dir + '/test1.txt').stat().then(function(f) {
+		it('.path().stat() can detect mode=0644 and size=11', function(){
+			return fs.path(test_dir + '/test1.txt').stat().then(function(f) {
 				assert.strictEqual( f.size, 11 );
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+				assert.strictEqual( f.mode, parseInt('0644', 8) );
+			});
 		});
 
-		it('.path().chmod() can chmod tmp/test1.txt to 0600', function(done){
+		it('.path().chmod() can chmod tmp/test1.txt to 0600 -- using mode as string', function(){
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100644 );
+			return p.stat().then(function(f) {
+				assert.strictEqual( f.mode, parseInt('0644', 8) );
 				return p;
 			}).chmod('0600').stat().then(function(f) {
-				assert.strictEqual( parseInt(f.mode.toString(8), 10), 100600 );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+				assert.strictEqual( f.mode, parseInt('0600', 8) );
+			});
 		});
 
-		it('.path().truncate() can truncate tmp/test1.txt to size 8', function(done){
+		it('.path().chmod() can chmod tmp/test1.txt to 0600 -- using mode as number', function(){
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
+				assert.strictEqual( f.mode, parseInt('0644', 8) );
+				return p;
+			}).chmod(parseInt('0600', 8)).stat().then(function(f) {
+				assert.strictEqual( f.mode, parseInt('0600', 8) );
+			});
+		});
+
+		it('.path().truncate() can truncate tmp/test1.txt to size 8', function(){
+			var p = fs.path(test_dir + '/test1.txt');
+			return p.stat().then(function(f) {
 				assert.strictEqual( f.size, 11 );
 				return p;
 			}).truncate(8).stat().then(function(f) {
 				assert.strictEqual( f.size, 8 );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().chown() can change tmp/test1.txt to own uid, gid', function(done){
+		it('.path().chown() can change tmp/test1.txt to own uid, gid', function(){
 			// FIXME: This should be tested somehow better
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				assert.strictEqual( f.uid, process.getuid() );
 				assert.strictEqual( f.gid, process.getgid() );
 				return p;
 			}).chown(process.getuid(), process.getgid()).stat().then(function(f) {
 				assert.strictEqual( f.uid, process.getuid() );
 				assert.strictEqual( f.gid, process.getgid() );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().link() can link tmp/test2.txt as tmp/test1.txt', function(done){
+		it('.path().link() can link tmp/test2.txt as tmp/test1.txt', function(){
 			var orig;
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).link(test_dir + '/test2.txt').then(function() {
@@ -210,16 +187,13 @@ describe('fs-path', function(){
 				assert.strictEqual( ''+f.ctime, ''+orig.ctime );
 				assert.strictEqual( f.size, orig.size );
 				assert.strictEqual( f.ino, orig.ino );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().symlink() can symlink tmp/test2.txt as tmp/test1.txt', function(done){
+		it('.path().symlink() can symlink tmp/test2.txt as tmp/test1.txt', function(){
 			var orig;
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).symlink(test_dir + '/test2.txt').then(function() {
@@ -230,18 +204,14 @@ describe('fs-path', function(){
 				assert.strictEqual( f.ino, orig.ino );
 			}).fin(function() {
 				return fs.unlink(test_dir + '/test2.txt');
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().readlink() can read a symlinks', function(done){
+		it('.path().readlink() can read a symlinks', function(){
 			var orig;
 			var p = fs.path(test_dir + '/test1.txt');
 			var p2 = fs.path(test_dir + '/test2.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).symlink(test_dir + '/test2.txt').then(function() {
@@ -255,18 +225,14 @@ describe('fs-path', function(){
 				assert.strictEqual( linkString, test_dir+'/test1.txt' );
 			}).fin(function() {
 				return fs.unlink(test_dir + '/test2.txt');
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().realpath() can resolve path', function(done){
+		it('.path().realpath() can resolve path', function(){
 			var orig;
 			var p = fs.path(test_dir + '/test1.txt');
 			var p2 = fs.path(test_dir + '/test2.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).symlink(test_dir + '/test2.txt').then(function() {
@@ -280,52 +246,37 @@ describe('fs-path', function(){
 				assert.strictEqual( resolvedPath, test_dir+'/test1.txt' );
 			}).fin(function() {
 				return fs.unlink(test_dir + '/test2.txt');
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().unlink() can unlink test1.txt', function(done){
-			fs.path(test_dir + '/test1.txt').unlink().exists().then(function(exists) {
+		it('.path().unlink() can unlink test1.txt', function(){
+			return fs.path(test_dir + '/test1.txt').unlink().exists().then(function(exists) {
 				assert.strictEqual( exists, false );
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().mkdir() can create directories and .rmdir() can remove those', function(done){
+		it('.path().mkdir() can create directories and .rmdir() can remove those', function(){
 			var p = fs.path(test_dir + '/subdir');
-			p.mkdir().exists().then(function(exists) {
+			return p.mkdir().exists().then(function(exists) {
 				assert.strictEqual( exists, true );
 				return p;
 			}).rmdir().exists().then(function(exists) {
 				assert.strictEqual( exists, false );
 				return fs;
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().readdir() can read directories', function(done){
-			fs.path(test_dir).readdir().then(function(files) {
+		it('.path().readdir() can read directories', function(){
+			return fs.path(test_dir).readdir().then(function(files) {
 				assert.deepEqual( files, ["test1.txt"] );
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().utimes() can change file timestamps', function(done){
+		it('.path().utimes() can change file timestamps', function(){
 			var orig;
 			var date = new Date(2013, 6, 20, 12, 1, 2);
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).utimes(date, date).stat().then(function(f) {
@@ -345,37 +296,25 @@ describe('fs-path', function(){
 
 				assert.strictEqual( f.size, orig.size );
 				assert.strictEqual( f.ino, orig.ino );
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().readFile() can read files', function(done){
-			fs.path(test_dir + "/test1.txt").readFile({encoding:"utf8"}).then(function(data) {
+		it('.path().readFile() can read files', function(){
+			return fs.path(test_dir + "/test1.txt").readFile({encoding:"utf8"}).then(function(data) {
 				assert.strictEqual( data, "Hello World" );
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().appendFile() can append to tmp/test1.txt', function(done){
-			fs.path(test_dir + '/test1.txt').appendFile(' -- How is it working?').readFile({encoding:"utf8"}).then(function(data) {
+		it('.path().appendFile() can append to tmp/test1.txt', function(){
+			return fs.path(test_dir + '/test1.txt').appendFile(' -- How is it working?').readFile({encoding:"utf8"}).then(function(data) {
 				assert.strictEqual( data, "Hello World -- How is it working?" );
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().lstat() can stat files from symlinks', function(done){
+		it('.path().lstat() can stat files from symlinks', function(){
 			var orig;
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).symlink(test_dir + '/test2.txt').then(function() {
@@ -385,17 +324,13 @@ describe('fs-path', function(){
 				assert.notStrictEqual( f.size, orig.size );
 			}).fin(function() {
 				return fs.unlink(test_dir + '/test2.txt');
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().open() can open files and fs.fstat(fd) it, and then fs.close(fd)', function(done){
+		it('.path().open() can open files and fs.fstat(fd) it, and then fs.close(fd)', function(){
 			var orig, fd;
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).open('r').then(function(f) {
@@ -408,17 +343,13 @@ describe('fs-path', function(){
 				assert.strictEqual( f.size, orig.size );
 			}).fin(function() {
 				return fs.close(fd.valueOf());
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
-		it('.path().open() can open files and fd.stat() it, and then fd.close()', function(done){
+		it('.path().open() can open files and fd.stat() it, and then fd.close()', function(){
 			var orig, fd;
 			var p = fs.path(test_dir + '/test1.txt');
-			p.stat().then(function(f) {
+			return p.stat().then(function(f) {
 				orig = f;
 				return p;
 			}).open('r').then(function(f) {
@@ -428,11 +359,7 @@ describe('fs-path', function(){
 				assert.strictEqual( f.size, orig.size );
 			}).fin(function() {
 				return fd.close();
-			}).then(function() {
-				done();
-			}).fail(function(err) {
-				done(err);
-			}).done();
+			});
 		});
 
 	});
