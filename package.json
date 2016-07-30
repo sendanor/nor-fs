@@ -1,6 +1,6 @@
 {
   "name": "nor-fs",
-  "version": "0.1.20",
+  "version": "0.1.21",
   "description": "Asynchronous file system library with chainable Q promises for Node.js",
   "main": "src/index.js",
   "scripts": {
@@ -63,17 +63,17 @@
     "url" : "https://github.com/sendanor/nor-fs/issues"
   },
   "dependencies": {
-    "q"          : ">= 1.0.1  < 2.0.0",
-    "nor-debug" : ">= 0.1.55 < 0.2.0",
-    "nor-function" : ">= 0.1.7 < 0.2.0",
-    "nor-array" : ">= 0.1.8 < 0.2.0",
-    "nor-extend" : ">= 0.1.32 < 0.2.0",
-    "nor-is"     : ">= 0.1.18 < 0.2.0"
+    "q"            : "^1.0.1",
+    "nor-debug"    : "^0.1.55",
+    "nor-function" : "^0.1.7",
+    "nor-array"    : "^0.1.8",
+    "nor-extend"   : "^0.1.32",
+    "nor-is"       : "^0.1.18"
   },
   "devDependencies": {
-    "lint": "*",
-    "mocha": "*",
-    "jshint" : "*"
+    "lint"         : "^1.1.2",
+    "mocha"        : "^2.5.3",
+    "jshint"       : "^2.9.2"
   },
   "engines": {
     "node": ">=0.10"
